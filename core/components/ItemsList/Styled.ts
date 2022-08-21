@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ItemsListWrapper = styled.div`
   display: flex;

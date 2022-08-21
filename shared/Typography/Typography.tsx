@@ -1,6 +1,6 @@
-import { TextType } from "@/config/TextType";
-import React from "react";
-import { HintText, InputLabel, RegularText } from "./Styled";
+import { TextType } from '@/config/TextType';
+import React from 'react';
+import { HintText, InputLabel, RegularText } from './Styled';
 
 interface TypographyProps {
   text: string;

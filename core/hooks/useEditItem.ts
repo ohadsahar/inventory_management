@@ -1,13 +1,7 @@
-import { ItemProps } from "models/item.model";
-import { useCallback, useState } from "react";
+import { ItemProps } from 'models/item.model';
+import { useCallback, useState } from 'react';
 
-export const useEditItem = ({
-  id,
-  name,
-  numOfUnits,
-  minimumForAlert,
-  onFinished,
-}: ItemProps) => {
+export const useEditItem = ({ id, name, numOfUnits, minimumForAlert, onFinished }: ItemProps) => {
   const [currentItem, setCurrentItem] = useState<ItemProps>({
     id,
     name,
@@ -19,12 +13,12 @@ export const useEditItem = ({
     (fieldName: string, currentValue: any) => {
       const itemToUpdate: ItemProps = { ...currentItem };
       switch (fieldName) {
-        case "numOfUnits":
+        case 'numOfUnits':
           itemToUpdate.numOfUnits = currentValue;
           break;
-        case "minimumForAlert":
+        case 'minimumForAlert':
           itemToUpdate.minimumForAlert = currentValue;
-        case "name":
+        case 'name':
           itemToUpdate.name = currentValue;
         default:
           break;
@@ -36,9 +30,9 @@ export const useEditItem = ({
 
   const onSubmit = useCallback(
     (value: boolean) => {
-      value === true ? console.log("dispatch") : console.log("dont dispatch");
+      value === true ? console.log('dispatch') : console.log('dont dispatch');
       if (onFinished) {
-        onFinished("");
+        onFinished('');
       }
     },
     [onFinished]
