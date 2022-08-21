@@ -12,6 +12,7 @@ html,body {
     font-family: 'Rubik', sans-serif; 
     direction:rtl;
     height:100vh;
+    color:black;
 }
 p {
     margin:0px;
