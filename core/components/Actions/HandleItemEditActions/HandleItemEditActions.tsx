@@ -1,6 +1,6 @@
-import React from "react";
-import { ItemActionsWrapper, IconWrapper } from "./Styled";
-import { FaCheck, FaWindowClose } from "react-icons/fa";
+import React from 'react';
+import { ItemActionsWrapper, IconWrapper } from './Styled';
+import { FaCheck, FaWindowClose } from 'react-icons/fa';
 
 interface HandleItemActionProps {
   onSubmit: (value: boolean) => void;

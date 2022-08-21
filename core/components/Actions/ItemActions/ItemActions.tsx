@@ -1,6 +1,6 @@
-import React from "react";
-import { ItemActionsWrapper, IconWrapper } from "./Styled";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import React from 'react';
+import { ItemActionsWrapper, IconWrapper } from './Styled';
+import { FaEdit, FaTrash } from 'react-icons/fa';
 
 interface ItemActionsProps {
   id: string;

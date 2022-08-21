@@ -1,5 +1,5 @@
 export const enum TextType {
-  HINT = "HINT",
-  REGULAR = "REGULAR",
-  LABEL = "LABEL",
+  HINT = 'HINT',
+  REGULAR = 'REGULAR',
+  LABEL = 'LABEL',
 }

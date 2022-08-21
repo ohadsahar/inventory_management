@@ -1,7 +1,7 @@
-import { Strings } from "@/config/Strings";
-import { useSearch } from "@/core/hooks/useSearch";
-import React from "react";
-import { SearchBarInput, SearchBarWrapper } from "./Styled";
+import { Strings } from '@/config/Strings';
+import { useSearch } from '@/core/hooks/useSearch';
+import React from 'react';
+import { SearchBarInput, SearchBarWrapper } from './Styled';
 
 const SearchBar = () => {
   const { handleSearchValue } = useSearch();

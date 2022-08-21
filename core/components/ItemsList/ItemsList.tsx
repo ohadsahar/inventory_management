@@ -1,8 +1,8 @@
-import Item from "@/core/components/Item/Item";
-import ItemForm from "@/core/components/ItemForm/ItemForm";
-import { useItems } from "@/core/hooks/useItems";
-import { ItemProps } from "models/item.model";
-import { ItemsListWrapper } from "./Styled";
+import Item from '@/core/components/Item/Item';
+import ItemForm from '@/core/components/ItemForm/ItemForm';
+import { useItems } from '@/core/hooks/useItems';
+import { ItemProps } from 'models/item.model';
+import { ItemsListWrapper } from './Styled';
 
 const ItemsList = () => {
   const { items, editID, setEditID, handleDelete } = useItems();
@@ -12,12 +12,7 @@ const ItemsList = () => {
         editID === item.id ? (
           <ItemForm key={item.id} {...item} onFinished={setEditID} />
         ) : (
-          <Item
-            key={item.id}
-            {...item}
-            onEdit={setEditID}
-            onDelete={handleDelete}
-          />
+          <Item key={item.id} {...item} onEdit={setEditID} onDelete={handleDelete} />
         )
       )}
     </ItemsListWrapper>

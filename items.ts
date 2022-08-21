@@ -1,32 +1,32 @@
 export const items = [
   {
-    id: "1",
+    id: '1',
     numOfUnits: 1,
     minimumForAlert: 4,
-    name: "אבטיח",
+    name: 'אבטיח',
   },
   {
-    id: "2",
+    id: '2',
     numOfUnits: 1,
     minimumForAlert: 4,
-    name: "במבה",
+    name: 'במבה',
   },
   {
-    id: "3",
+    id: '3',
     numOfUnits: 1,
     minimumForAlert: 4,
-    name: "גזר",
+    name: 'גזר',
   },
   {
-    id: "4",
+    id: '4',
     numOfUnits: 1,
     minimumForAlert: 4,
-    name: "דייסה",
+    name: 'דייסה',
   },
   {
-    id: "5",
+    id: '5',
     numOfUnits: 3,
     minimumForAlert: 4,
-    name: "חלב טבעוני",
+    name: 'חלב טבעוני',
   },
 ];
