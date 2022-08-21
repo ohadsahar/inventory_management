@@ -1,12 +1,12 @@
 import { Strings } from "@/config/Strings";
 import { TextType } from "@/config/TextType";
-import { useItemForm } from "@/core/hooks/useItemForm";
+import ItemActions from "@/core/components/Actions/EditItemActions/EditItemActions";
+import { useEditItem } from "@/core/hooks/useEditItem";
 import AppInput from "@/shared/AppInput/AppInput";
 import Typography from "@/shared/Typography/Typography";
 import { ItemProps } from "models/item.model";
-import { FaCheck } from "react-icons/fa";
-import ItemActions from "../EditItemActions/EditItemActions";
-import { ApproveEditWrapper, InputWrapper, ItemFormWrapper } from "./Styled";
+import HandleItemActions from "../Actions/HandleItemEditActions/HandleItemEditActions";
+import { InputWrapper, ItemFormWrapper } from "./Styled";
 
 const ItemForm = ({
   id,
@@ -15,7 +15,7 @@ const ItemForm = ({
   minimumForAlert,
   onFinished,
 }: ItemProps) => {
-  const { handleAction, onSubmit, currentItem } = useItemForm({
+  const { handleAction, onSubmit, currentItem } = useEditItem({
     id,
     name,
     numOfUnits,
@@ -49,9 +49,7 @@ const ItemForm = ({
           fieldName={"minimumForAlert"}
         />
       </InputWrapper>
-      <ApproveEditWrapper>
-        <FaCheck cursor={"pointer"} type="submit" onClick={onSubmit} />
-      </ApproveEditWrapper>
+      <HandleItemActions onSubmit={onSubmit} />
     </ItemFormWrapper>
   );
 };

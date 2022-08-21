@@ -13,7 +13,6 @@ const EditItemActions = ({
   currentValue,
   onAction,
 }: EditActionProps) => {
-  console.log(currentValue);
   return (
     <ItemActionsWrapper>
       <IconWrapper onClick={() => onAction(fieldName, currentValue - 1)}>

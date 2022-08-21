@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ItemFormWrapper = styled.form`
   display: grid;
-  grid-template-columns: 30vw 30vw 30vw 10vw;
+  grid-template-columns: 25vw 25vw 25vw 25vw;
   border: 1px solid black;
   border-radius: 8px;
   padding: 12px;
@@ -24,13 +24,6 @@ export const InputWrapper = styled.div`
 
   @media (max-width: 767px) {
     flex-direction: column;
-  }
-`;
-
-export const ApproveEditWrapper = styled.div`
-  @media (max-width: 767px) {
-    position: absolute;
-    left: 5vw;
-    bottom: 2vw;
+    align-items: flex-start;
   }
 `;

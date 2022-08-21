@@ -1,7 +1,7 @@
 import { ItemProps } from "models/item.model";
 import { useCallback, useState } from "react";
 
-export const useItemForm = ({
+export const useEditItem = ({
   id,
   name,
   numOfUnits,
@@ -34,11 +34,15 @@ export const useItemForm = ({
     [currentItem]
   );
 
-  const onSubmit = useCallback(() => {
-    if (onFinished) {
-      onFinished("");
-    }
-  }, [onFinished]);
+  const onSubmit = useCallback(
+    (value: boolean) => {
+      value === true ? console.log("dispatch") : console.log("dont dispatch");
+      if (onFinished) {
+        onFinished("");
+      }
+    },
+    [onFinished]
+  );
 
   return {
     currentItem,

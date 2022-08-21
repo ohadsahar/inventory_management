@@ -2,7 +2,7 @@ import { Strings } from "@/config/Strings";
 import { TextType } from "@/config/TextType";
 import Typography from "@/shared/Typography/Typography";
 import { ItemProps } from "models/item.model";
-import ItemActions from "../ItemActions/ItemActions";
+import ItemActions from "@/core/components/Actions/ItemActions/ItemActions";
 import { ItemWrapper } from "./Styled";
 
 const Item = ({
