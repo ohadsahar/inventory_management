@@ -2,16 +2,8 @@ import { Strings } from "@/config/Strings";
 import { TextType } from "@/config/TextType";
 import Typography from "@/shared/Typography/Typography";
 import { ItemProps } from "models/item.model";
-import { FaEdit } from "react-icons/fa";
+import ItemActions from "../ItemActions/ItemActions";
 import { ItemWrapper } from "./Styled";
-
-interface ItemCProps {
-  id: string;
-  name: string;
-  numOfUnits: number;
-  minimumForAlert: number;
-  onEdit: (item: ItemProps) => void;
-}
 
 const Item = ({
   id,
@@ -19,7 +11,8 @@ const Item = ({
   numOfUnits,
   minimumForAlert,
   onEdit,
-}: ItemCProps) => {
+  onDelete,
+}: ItemProps) => {
   return (
     <ItemWrapper>
       <Typography text={name} type={TextType.HINT} />
@@ -31,10 +24,9 @@ const Item = ({
         text={`${Strings.UnitBeforeWarning} ${minimumForAlert.toString()}`}
         type={TextType.HINT}
       />
-      <FaEdit
-        cursor={"pointer"}
-        onClick={() => onEdit({ id, name, numOfUnits, minimumForAlert })}
-      />
+      {onEdit && onDelete && (
+        <ItemActions id={id} onEdit={onEdit} onDelete={onDelete} />
+      )}
     </ItemWrapper>
   );
 };

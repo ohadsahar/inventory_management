@@ -1,22 +1,21 @@
 import React from "react";
 import { ItemActionsWrapper, IconWrapper } from "./Styled";
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
-interface ActionProps {
-  fieldName: string;
-  currentValue: number;
-  onAction: (fieldName: string, currentValue: number) => void;
+interface ItemActionsProps {
+  id: string;
+  onEdit: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
-const ItemActions = ({ fieldName, currentValue, onAction }: ActionProps) => {
+const ItemActions = ({ id, onEdit, onDelete }: ItemActionsProps) => {
   return (
     <ItemActionsWrapper>
-      <IconWrapper onClick={() => onAction(fieldName, currentValue - 1)}>
-        <FaMinus />
+      <IconWrapper onClick={() => onEdit(id)}>
+        <FaEdit />
       </IconWrapper>
-      {currentValue}
-      <IconWrapper onClick={() => onAction(fieldName, currentValue + 1)}>
-        <FaPlus />
+      <IconWrapper onClick={() => onDelete(id)}>
+        <FaTrash />
       </IconWrapper>
     </ItemActionsWrapper>
   );

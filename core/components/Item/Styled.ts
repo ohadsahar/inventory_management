@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ItemWrapper = styled.div`
   display: grid;
-  grid-template-columns: 30vw 30vw 30vw 10vw;
+  grid-template-columns: 25vw 25vw 25vw 25vw;
   border: 1px solid black;
   border-radius: 8px;
   padding: 12px;

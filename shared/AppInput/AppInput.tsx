@@ -2,12 +2,20 @@ import React from "react";
 import { AppInputWrapper } from "./Styled";
 
 interface AppInputProps {
-  register: any;
   fieldName: string;
+  defaultValue: string | number;
+  onAction: (fieldName: string, currentValue: number | string) => void;
 }
 
-const AppInput = ({ register, fieldName }: AppInputProps) => {
-  return <AppInputWrapper {...register(fieldName)} />;
+const AppInput = ({ fieldName, defaultValue, onAction }: AppInputProps) => {
+  return (
+    <AppInputWrapper
+      defaultValue={defaultValue}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        onAction(fieldName, e.currentTarget.value)
+      }
+    />
+  );
 };
 
 export default AppInput;
