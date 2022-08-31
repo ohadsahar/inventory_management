@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ItemProps } from "models/item.model";
-import { RootState } from "../store";
-import { createItem, deleteItem, getItems, updateItem } from "./AsyncFunctions/handleItem";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ItemProps } from 'models/item.model';
+import { RootState } from '../store';
+import { createItem, deleteItem, getItems, updateItem } from './AsyncFunctions/handleItem';
 
 interface initialState {
   initialItems: ItemProps[];
@@ -12,11 +12,11 @@ interface initialState {
 const initialState: initialState = {
   initialItems: [],
   loading: false,
-  error: "",
+  error: '',
 };
 
 const inventorySlice = createSlice({
-  name: "inventory",
+  name: 'inventory',
   initialState,
   reducers: {},
   extraReducers(builder) {
@@ -30,7 +30,7 @@ const inventorySlice = createSlice({
     builder.addCase(getItems.rejected, (state) => {
       state.loading = false;
       state.initialItems = [];
-      state.error = "Error with loading items";
+      state.error = 'Error with loading items';
     });
     builder.addCase(createItem.fulfilled, (state, action: PayloadAction<ItemProps>) => {
       state.loading = false;
@@ -41,7 +41,7 @@ const inventorySlice = createSlice({
     });
     builder.addCase(createItem.rejected, (state) => {
       state.loading = false;
-      state.error = "Error with adding current item";
+      state.error = 'Error with adding current item';
     });
     builder.addCase(deleteItem.fulfilled, (state, action: PayloadAction<string>) => {
       const updatedItems = [...state.initialItems];
@@ -55,7 +55,7 @@ const inventorySlice = createSlice({
     });
     builder.addCase(deleteItem.rejected, (state) => {
       state.loading = false;
-      state.error = "Error while trying to delete item";
+      state.error = 'Error while trying to delete item';
     });
     builder.addCase(updateItem.fulfilled, (state, action: PayloadAction<ItemProps>) => {
       const itemToUpdateIndex = state.initialItems.findIndex((item: ItemProps) => item.id === action.payload.id);

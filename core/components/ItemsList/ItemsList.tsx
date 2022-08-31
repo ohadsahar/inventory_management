@@ -1,9 +1,8 @@
 import Item from '@/core/components/Item/Item';
-import ItemForm from '@/core/components/ItemForm/ItemForm';
 import { useItems } from '@/core/hooks/useItems';
 import { ItemProps } from 'models/item.model';
 import { ItemsListWrapper } from './Styled';
-
+import EditItemForm from '@/core/components/EditItemForm/EditItemForm';
 const ItemsList = () => {
   const { items, editID, setEditID, handleDelete } = useItems();
   return (

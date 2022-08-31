@@ -1,12 +1,12 @@
-import { Strings } from "@/config/Strings";
-import { TextType } from "@/config/TextType";
-import ItemActions from "@/core/components/Actions/EditItemActions/EditItemActions";
-import { useAddItem } from "@/core/hooks/useAddItem";
-import AppInput from "@/shared/AppInput/AppInput";
-import Typography from "@/shared/Typography/Typography";
-import HandleItemActions from "../Actions/HandleItemEditActions/HandleItemEditActions";
-import { AddItemIconWrapper, InputWrapper, ItemFormWrapper } from "./Styled";
-import { FaPlus } from "react-icons/fa";
+import { Strings } from '@/config/Strings';
+import { TextType } from '@/config/TextType';
+import ItemActions from '@/core/components/Actions/EditItemActions/EditItemActions';
+import { useAddItem } from '@/core/hooks/useAddItem';
+import AppInput from '@/shared/AppInput/AppInput';
+import Typography from '@/shared/Typography/Typography';
+import HandleItemActions from '../Actions/HandleItemEditActions/HandleItemEditActions';
+import { AddItemIconWrapper, InputWrapper, ItemFormWrapper } from './Styled';
+import { FaPlus } from 'react-icons/fa';
 const AddItemForm = () => {
   const { itemToAdd, createMode, handleAction, onSubmit, setCreateMode } = useAddItem();
   return !createMode ? (
@@ -21,11 +21,11 @@ const AddItemForm = () => {
       </InputWrapper>
       <InputWrapper>
         <Typography type={TextType.LABEL} text={Strings.UnitInInventory} />
-        <ItemActions currentValue={itemToAdd.numOfUnits} onAction={handleAction} fieldName={"numOfUnits"} />
+        <ItemActions currentValue={itemToAdd.numOfUnits} onAction={handleAction} fieldName={'numOfUnits'} />
       </InputWrapper>
       <InputWrapper>
         <Typography type={TextType.LABEL} text={Strings.UnitBeforeWarning} />
-        <ItemActions currentValue={itemToAdd.minimumForAlert} onAction={handleAction} fieldName={"minimumForAlert"} />
+        <ItemActions currentValue={itemToAdd.minimumForAlert} onAction={handleAction} fieldName={'minimumForAlert'} />
       </InputWrapper>
       <HandleItemActions onSubmit={onSubmit} />
     </ItemFormWrapper>

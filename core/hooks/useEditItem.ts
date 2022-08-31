@@ -1,7 +1,10 @@
 import { ItemProps } from 'models/item.model';
 import { useCallback, useState } from 'react';
+import { updateItem } from 'redux/InventorySlice/AsyncFunctions/handleItem';
+import { useAppDispatch } from 'redux/store';
 
 export const useEditItem = ({ id, name, numOfUnits, minimumForAlert, onFinished }: ItemProps) => {
+  const dispatch = useAppDispatch();
   const [currentItem, setCurrentItem] = useState<ItemProps>({
     id,
     name,
@@ -18,12 +21,8 @@ export const useEditItem = ({ id, name, numOfUnits, minimumForAlert, onFinished 
           break;
         case 'minimumForAlert':
           itemToUpdate.minimumForAlert = currentValue;
-<<<<<<< HEAD
-        case 'name':
-=======
           break;
-        case "name":
->>>>>>> 19875c1 (added all crud operations local and added add form item)
+        case 'name':
           itemToUpdate.name = currentValue;
           break;
         default:
@@ -36,13 +35,9 @@ export const useEditItem = ({ id, name, numOfUnits, minimumForAlert, onFinished 
 
   const onSubmit = useCallback(
     (value: boolean) => {
-<<<<<<< HEAD
-      value === true ? console.log('dispatch') : console.log('dont dispatch');
-=======
       if (onFinished && value) {
         dispatch(updateItem(currentItem));
       }
->>>>>>> 19875c1 (added all crud operations local and added add form item)
       if (onFinished) {
         onFinished('');
       }

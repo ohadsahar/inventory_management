@@ -1,5 +1,5 @@
 import React from 'react';
-import { ItemActionsWrapper, IconWrapper } from '@/core/components/Actions/ItemActions/Styled';
+import { ItemActionsWrapper, IconWrapper } from './Styled';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
 interface EditActionProps {

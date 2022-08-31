@@ -1,11 +1,11 @@
-import { ItemProps } from "models/item.model";
-import { useCallback, useMemo, useState } from "react";
-import { createItem } from "redux/InventorySlice/AsyncFunctions/handleItem";
-import { useAppDispatch } from "redux/store";
+import { ItemProps } from 'models/item.model';
+import { useCallback, useMemo, useState } from 'react';
+import { createItem } from 'redux/InventorySlice/AsyncFunctions/handleItem';
+import { useAppDispatch } from 'redux/store';
 
 export const useAddItem = () => {
   const initialItem = useMemo(() => {
-    return { id: "", name: "", numOfUnits: 1, minimumForAlert: 1 };
+    return { id: '', name: '', numOfUnits: 1, minimumForAlert: 1 };
   }, []);
 
   const dispatch = useAppDispatch();
@@ -16,13 +16,13 @@ export const useAddItem = () => {
     (fieldName: string, currentValue: any) => {
       const itemToUpdate: ItemProps = { ...itemToAdd };
       switch (fieldName) {
-        case "numOfUnits":
+        case 'numOfUnits':
           itemToUpdate.numOfUnits = currentValue;
           break;
-        case "minimumForAlert":
+        case 'minimumForAlert':
           itemToUpdate.minimumForAlert = currentValue;
           break;
-        case "name":
+        case 'name':
           itemToUpdate.name = currentValue;
           break;
         default:
