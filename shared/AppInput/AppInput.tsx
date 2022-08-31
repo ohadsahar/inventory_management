@@ -3,7 +3,7 @@ import { AppInputWrapper } from './Styled';
 
 interface AppInputProps {
   fieldName: string;
-  defaultValue: string | number;
+  defaultValue?: string | number;
   onAction: (fieldName: string, currentValue: number | string) => void;
 }
 

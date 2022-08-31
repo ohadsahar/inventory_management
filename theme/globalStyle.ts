@@ -13,6 +13,7 @@ html,body {
     direction:rtl;
     height:100vh;
     color:black;
+    overflow:hidden;
 }
 p {
     margin:0px;

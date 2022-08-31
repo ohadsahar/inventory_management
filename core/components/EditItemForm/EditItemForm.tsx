@@ -36,4 +36,4 @@ const ItemForm = ({ id, name, numOfUnits, minimumForAlert, onFinished }: ItemPro
   );
 };
 
-export default ItemForm;
+export default EditItemForm;

@@ -10,7 +10,7 @@ const ItemsList = () => {
     <ItemsListWrapper>
       {items?.map((item: ItemProps) =>
         editID === item.id ? (
-          <ItemForm key={item.id} {...item} onFinished={setEditID} />
+          <EditItemForm key={item.id} {...item} onFinished={setEditID} />
         ) : (
           <Item key={item.id} {...item} onEdit={setEditID} onDelete={handleDelete} />
         )

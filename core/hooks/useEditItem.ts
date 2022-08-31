@@ -18,8 +18,14 @@ export const useEditItem = ({ id, name, numOfUnits, minimumForAlert, onFinished 
           break;
         case 'minimumForAlert':
           itemToUpdate.minimumForAlert = currentValue;
+<<<<<<< HEAD
         case 'name':
+=======
+          break;
+        case "name":
+>>>>>>> 19875c1 (added all crud operations local and added add form item)
           itemToUpdate.name = currentValue;
+          break;
         default:
           break;
       }
@@ -30,12 +36,18 @@ export const useEditItem = ({ id, name, numOfUnits, minimumForAlert, onFinished 
 
   const onSubmit = useCallback(
     (value: boolean) => {
+<<<<<<< HEAD
       value === true ? console.log('dispatch') : console.log('dont dispatch');
+=======
+      if (onFinished && value) {
+        dispatch(updateItem(currentItem));
+      }
+>>>>>>> 19875c1 (added all crud operations local and added add form item)
       if (onFinished) {
         onFinished('');
       }
     },
-    [onFinished]
+    [onFinished, dispatch, currentItem]
   );
 
   return {
