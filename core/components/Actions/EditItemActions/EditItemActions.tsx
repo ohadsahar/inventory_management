@@ -8,11 +8,7 @@ interface EditActionProps {
   onAction: (fieldName: string, currentValue: number) => void;
 }
 
-const EditItemActions = ({
-  fieldName,
-  currentValue,
-  onAction,
-}: EditActionProps) => {
+const EditItemActions = ({ fieldName, currentValue, onAction }: EditActionProps) => {
   return (
     <ItemActionsWrapper>
       <IconWrapper onClick={() => onAction(fieldName, currentValue - 1)}>

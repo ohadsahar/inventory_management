@@ -8,13 +8,7 @@ import { ItemProps } from "models/item.model";
 import HandleItemActions from "../Actions/HandleItemEditActions/HandleItemEditActions";
 import { InputWrapper, ItemFormWrapper } from "./Styled";
 
-const ItemForm = ({
-  id,
-  name,
-  numOfUnits,
-  minimumForAlert,
-  onFinished,
-}: ItemProps) => {
+const EditItemForm = ({ id, name, numOfUnits, minimumForAlert, onFinished }: ItemProps) => {
   const { handleAction, onSubmit, currentItem } = useEditItem({
     id,
     name,
@@ -27,31 +21,19 @@ const ItemForm = ({
     <ItemFormWrapper>
       <InputWrapper>
         <Typography type={TextType.LABEL} text={Strings.NameOfItem} />
-        <AppInput
-          fieldName="name"
-          defaultValue={currentItem.name}
-          onAction={handleAction}
-        />
+        <AppInput fieldName="name" defaultValue={currentItem.name} onAction={handleAction} />
       </InputWrapper>
       <InputWrapper>
         <Typography type={TextType.LABEL} text={Strings.UnitInInventory} />
-        <ItemActions
-          currentValue={currentItem.numOfUnits}
-          onAction={handleAction}
-          fieldName={"numOfUnits"}
-        />
+        <ItemActions currentValue={currentItem.numOfUnits} onAction={handleAction} fieldName={"numOfUnits"} />
       </InputWrapper>
       <InputWrapper>
         <Typography type={TextType.LABEL} text={Strings.UnitBeforeWarning} />
-        <ItemActions
-          currentValue={currentItem.minimumForAlert}
-          onAction={handleAction}
-          fieldName={"minimumForAlert"}
-        />
+        <ItemActions currentValue={currentItem.minimumForAlert} onAction={handleAction} fieldName={"minimumForAlert"} />
       </InputWrapper>
       <HandleItemActions onSubmit={onSubmit} />
     </ItemFormWrapper>
   );
 };
 
-export default ItemForm;
+export default EditItemForm;
