@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-npm run eslint-check
-npm run eslint-fix
-npm run prettier-format
-npm run prettier-lint
+# npm run eslint-check
+# npm run eslint-fix
+# npm run prettier-format
+# npm run prettier-lint
 git add .
 
