@@ -1,5 +1,5 @@
 import { Strings } from '@/config/Strings';
-import { useSearch } from '@/core/hooks/useSearch';
+import { useSearch } from '@/core/components/Item/hooks/useSearch';
 import React from 'react';
 import { SearchBarInput, SearchBarWrapper } from './Styled';
 

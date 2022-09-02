@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SearchBarWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-bottom: 3vh;
+  width: 100%;
 `;
 
 export const SearchBarInput = styled.input`

@@ -1,15 +1,17 @@
-import ItemsList from '@/core/components/ItemsList/ItemsList';
-import SearchBar from '@/core/components/SearchBar/SearchBar';
-import AddItemForm from '../AddItemForm/AddItemForm';
-import { LayoutWrapper } from './Styled';
+import Dashboard from '@/core/components/Dashboard/Dashboard';
+import Inventory from '@/core/components/Inventory/Inventory';
+import { LayoutComponentsWrapper } from './Styled';
 
-const Layout = () => {
+interface LayoutProps {
+  currentLayout: string;
+}
+
+const Layout = ({ currentLayout }: LayoutProps) => {
   return (
-    <LayoutWrapper>
-      <SearchBar />
-      <AddItemForm />
-      <ItemsList />
-    </LayoutWrapper>
+    <LayoutComponentsWrapper>
+      {currentLayout === '1' && <Dashboard />}
+      {currentLayout === '2' && <Inventory />}
+    </LayoutComponentsWrapper>
   );
 };
 

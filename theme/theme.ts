@@ -4,5 +4,7 @@ export default {
     main: '#197bbd',
     secondary: '#2e2d34',
     third: '#4e4e5c',
+    hint: '#b5bcbf',
+    layout: '#f3f9fd',
   },
 };
