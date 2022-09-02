@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const LayoutWrapper = styled.div`
+export const LayoutComponentsWrapper = styled.div`
   padding: 16px;
-  overflow: hidden;
+  height: calc(100vh - 60px);
+  background-color: ${(props: any) => props.theme.colors.layout};
 `;

@@ -3,4 +3,6 @@ export const enum Strings {
   UnitInInventory = "יח' במלאי:",
   UnitBeforeWarning = 'יח׳ לפני אזהרה:',
   NameOfItem = 'שם המוצר',
+  DrawerItemHome = 'בית',
+  DrawerItemProducts = 'מוצרים',
 }

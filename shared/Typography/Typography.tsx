@@ -1,6 +1,6 @@
 import { TextType } from '@/config/TextType';
 import React from 'react';
-import { HintText, InputLabel, RegularText } from './Styled';
+import { HintText, InputLabel, RegularText, TitleText } from './Styled';
 
 interface TypographyProps {
   text: string;
@@ -12,17 +12,18 @@ interface TypographyProps {
 const Typography = ({ text, type, color, textAlign }: TypographyProps) => {
   return (
     <>
-      {type === TextType.HINT && (
-        <HintText textAlign={textAlign} color={color}>
-          {text}
-        </HintText>
-      )}
+      {type === TextType.TITLE && <TitleText>{text}</TitleText>}
       {type === TextType.REGULAR && (
         <RegularText textAlign={textAlign} color={color}>
           {text}
         </RegularText>
       )}
       {type === TextType.LABEL && <InputLabel>{text}</InputLabel>}
+      {type === TextType.HINT && (
+        <HintText textAlign={textAlign} color={color}>
+          {text}
+        </HintText>
+      )}
     </>
   );
 };
