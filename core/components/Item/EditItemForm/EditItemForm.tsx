@@ -1,11 +1,11 @@
 import { Strings } from '@/config/Strings';
 import { TextType } from '@/config/TextType';
-import ItemActions from '@/core/components/Actions/EditItemActions/EditItemActions';
+import ItemActions from '@/core/components/Item/Actions/EditItemActions/EditItemActions';
 import { useEditItem } from '@/core/components/Item/hooks/useEditItem';
 import AppInput from '@/shared/AppInput/AppInput';
 import Typography from '@/shared/Typography/Typography';
 import { ItemProps } from 'models/item.model';
-import HandleItemActions from '../../Actions/HandleItemEditActions/HandleItemEditActions';
+import HandleItemActions from '../Actions/HandleItemEditActions/HandleItemEditActions';
 import { InputWrapper, ItemFormWrapper } from './Styled';
 
 const EditItemForm = ({ id, name, numOfUnits, minimumForAlert, onFinished }: ItemProps) => {

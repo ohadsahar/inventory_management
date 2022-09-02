@@ -10,7 +10,7 @@ export const useDashboard = () => {
       warningsColor: '#ff9f0b',
     };
   }, []);
-  const dashboardData: DashboardModel = {
+  const dashboardCardsData: DashboardModel = {
     itemsCount: 10,
     totalInventoryCount: 132,
     updatesWeeklyCount: 50,
@@ -22,5 +22,5 @@ export const useDashboard = () => {
     warningCountPercentage: 0.8,
   };
 
-  return { dashboardData, dashboardCardsColor };
+  return { dashboardCardsData, dashboardCardsColor };
 };

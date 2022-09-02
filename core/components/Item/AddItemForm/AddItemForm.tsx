@@ -1,10 +1,10 @@
 import { Strings } from '@/config/Strings';
 import { TextType } from '@/config/TextType';
-import ItemActions from '@/core/components/Actions/EditItemActions/EditItemActions';
+import ItemActions from '@/core/components/Item/Actions/EditItemActions/EditItemActions';
 import { useAddItem } from '@/core/components/Item/hooks/useAddItem';
 import AppInput from '@/shared/AppInput/AppInput';
 import Typography from '@/shared/Typography/Typography';
-import HandleItemActions from '../../Actions/HandleItemEditActions/HandleItemEditActions';
+import HandleItemActions from '../Actions/HandleItemEditActions/HandleItemEditActions';
 import { AddItemIconWrapper, InputWrapper, ItemFormWrapper } from './Styled';
 import { FaPlus } from 'react-icons/fa';
 const AddItemForm = () => {
