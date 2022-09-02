@@ -5,4 +5,10 @@ export const enum Strings {
   NameOfItem = 'שם המוצר',
   DrawerItemHome = 'בית',
   DrawerItemProducts = 'מוצרים',
+  DashboardCardTitleItems = 'מוצרים',
+  DashboardCardTitleWeeklyUpdates = 'כמות עדכונים שבועי',
+  DashboardCardTitleTotalInventory = 'סה״כ מלאי',
+  DashboardCardTitleWarnings = 'כמות אזהרות',
+  DashboardCardPercentageUp = 'עלייה של',
+  DashboardCardPercentageDown = 'ירידה של',
 }

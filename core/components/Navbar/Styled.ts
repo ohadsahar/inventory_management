@@ -5,6 +5,7 @@ export const AppNavbarWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   height: 64px;
+  background-color: white;
 `;
 
 export const AppNavbarIconWrapper = styled.div`
