@@ -4,31 +4,44 @@ import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import DashboardCard from './DashboardCard/DashboardCard';
 import { DashboardWrapper } from './Styled';
+import { Strings } from '@/config/Strings';
+import { useDashboard } from './hooks/useDashboard';
 
 const Dashboard = () => {
+  const { dashboardData, dashboardCardsColor } = useDashboard();
   return (
     <DashboardWrapper>
       <DashboardCard
-        amount="10"
-        title="מוצרים"
+        amount={dashboardData.itemsCount}
+        title={Strings.DashboardCardTitleItems}
         icon={<ProductionQuantityLimitsIcon fontSize="large" />}
-        isIncrease={true}
-        color="#a4dfcd"
+        isIncrease={dashboardData.isIncrease}
+        color={dashboardCardsColor.itemsColor}
+        percentage={dashboardData.itemsCountPercentage}
       />
-      <DashboardCard amount="132" title="סה״כ מלאי" icon={<CategoryIcon fontSize="large" />} isIncrease={false} color="#623cea" />
       <DashboardCard
-        amount="20"
-        title="כמות עדכונים שבועי"
+        amount={dashboardData.totalInventoryCount}
+        title={Strings.DashboardCardTitleTotalInventory}
+        icon={<CategoryIcon fontSize="large" />}
+        isIncrease={false}
+        color={dashboardCardsColor.totalInventoryColor}
+        percentage={dashboardData.totalInventoryPercentage}
+      />
+      <DashboardCard
+        amount={dashboardData.updatesWeeklyCount}
+        title={Strings.DashboardCardTitleWeeklyUpdates}
         icon={<SyncAltIcon fontSize="large" />}
         isIncrease={true}
-        color="#a4dbfe"
+        color={dashboardCardsColor.weeklyUpdateColor}
+        percentage={dashboardData.updatesWeeklyPercentage}
       />
       <DashboardCard
-        amount="5"
-        title="כמות אזהרות"
+        amount={dashboardData.warningCount}
+        title={Strings.DashboardCardTitleWarnings}
         icon={<WarningAmberIcon fontSize="large" />}
         isIncrease={false}
-        color="#ff9f0b"
+        color={dashboardCardsColor.warningsColor}
+        percentage={dashboardData.warningCountPercentage}
       />
     </DashboardWrapper>
   );

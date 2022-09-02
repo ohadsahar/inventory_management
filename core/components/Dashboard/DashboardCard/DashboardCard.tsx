@@ -1,3 +1,4 @@
+import { Strings } from '@/config/Strings';
 import { TextType } from '@/config/TextType';
 import Typography from '@/shared/Typography/Typography';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
@@ -5,14 +6,15 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { DashboardCardTitle, DashboardCardWrapper, IconWrapper, PairWrapper } from './Styled';
 
 interface DashboardCardProps {
-  amount: string;
+  amount: number;
   title: string;
   isIncrease: boolean;
   icon: any;
   color: string;
+  percentage: number;
 }
 
-const DashboardCard = ({ amount, title, icon, isIncrease, color }: DashboardCardProps) => {
+const DashboardCard = ({ amount, title, icon, isIncrease, color, percentage }: DashboardCardProps) => {
   return (
     <DashboardCardWrapper>
       <PairWrapper>
@@ -21,7 +23,14 @@ const DashboardCard = ({ amount, title, icon, isIncrease, color }: DashboardCard
       </PairWrapper>
       <PairWrapper>
         <Typography text={amount.toString()} type={TextType.TITLE} />
-        <Typography type={TextType.HINT} text={isIncrease ? 'עלייה של 0.75 אחוז' : 'ירידה ב0.5 אחוז'} />
+        <Typography
+          type={TextType.HINT}
+          text={
+            isIncrease
+              ? `${Strings.DashboardCardPercentageUp} ${percentage}%`
+              : `${Strings.DashboardCardPercentageDown} ${percentage}%`
+          }
+        />
       </PairWrapper>
       <IconWrapper color={color}>
         {isIncrease ? <TrendingUpIcon fontSize="large" /> : <TrendingDownIcon fontSize="large" />}
