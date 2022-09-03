@@ -8,6 +8,8 @@ export const useDashboard = () => {
       totalInventoryColor: '#623cea',
       weeklyUpdateColor: '#a4dbfe',
       warningsColor: '#ff9f0b',
+      electricalItemColor: '#FFA987',
+      documentColor: '#004E89',
     };
   }, []);
   const dashboardCardsData: DashboardModel = {
@@ -15,10 +17,12 @@ export const useDashboard = () => {
     totalInventoryCount: 132,
     updatesWeeklyCount: 50,
     warningCount: 10,
+    electricalItemsCount: 4,
+    documentsCount: 10,
     isIncrease: true,
     itemsCountPercentage: 0.75,
-    totalInventoryPercentage: 0.5,
-    updatesWeeklyPercentage: 0.25,
+    totalInventoryCountPercentage: 0.5,
+    updatesWeeklyCountPercentage: 0.25,
     warningCountPercentage: 0.8,
   };
 

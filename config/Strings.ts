@@ -6,9 +6,11 @@ export const enum Strings {
   DrawerItemHome = 'בית',
   DrawerItemProducts = 'מוצרים',
   DashboardCardTitleItems = 'מוצרים',
-  DashboardCardTitleWeeklyUpdates = 'כמות עדכונים שבועי',
   DashboardCardTitleTotalInventory = 'סה״כ מלאי',
+  DashboardCardTitleWeeklyUpdates = 'כמות עדכונים שבועי',
   DashboardCardTitleWarnings = 'כמות אזהרות',
   DashboardCardPercentageUp = 'עלייה של',
   DashboardCardPercentageDown = 'ירידה של',
+  DashboardCardElectrialProducts = 'מוצרים חשמליים',
+  DashboardCardDocuments = 'קבלות',
 }

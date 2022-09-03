@@ -9,8 +9,8 @@ export const DashboardCardWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  grid-row-gap: 3vh;
-  width: 240px;
+  grid-row-gap: 2vh;
+  width: 220px;
   background-color: white;
   border-radius: 8px;
   padding: 24px;

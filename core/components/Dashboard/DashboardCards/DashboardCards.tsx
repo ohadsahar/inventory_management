@@ -1,6 +1,8 @@
 import { Strings } from '@/config/Strings';
 import DashboardCard from '@/core/components/Dashboard/DashboardCards/DashboardCard/DashboardCard';
+import ArticleIcon from '@mui/icons-material/Article';
 import CategoryIcon from '@mui/icons-material/Category';
+import ComputerIcon from '@mui/icons-material/Computer';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
@@ -26,7 +28,7 @@ const DashboardCards = () => {
         icon={<CategoryIcon fontSize="large" />}
         isIncrease={false}
         color={dashboardCardsColor.totalInventoryColor}
-        percentage={dashboardCardsData.totalInventoryPercentage}
+        percentage={dashboardCardsData.totalInventoryCountPercentage}
       />
       <DashboardCard
         amount={dashboardCardsData.updatesWeeklyCount}
@@ -34,7 +36,7 @@ const DashboardCards = () => {
         icon={<SyncAltIcon fontSize="large" />}
         isIncrease={true}
         color={dashboardCardsColor.weeklyUpdateColor}
-        percentage={dashboardCardsData.updatesWeeklyPercentage}
+        percentage={dashboardCardsData.updatesWeeklyCountPercentage}
       />
       <DashboardCard
         amount={dashboardCardsData.warningCount}
@@ -45,19 +47,19 @@ const DashboardCards = () => {
         percentage={dashboardCardsData.warningCountPercentage}
       />
       <DashboardCard
-        amount={dashboardCardsData.warningCount}
-        title="מוצרים חשמליים"
-        icon={<WarningAmberIcon fontSize="large" />}
+        amount={dashboardCardsData.electricalItemsCount}
+        title={Strings.DashboardCardElectrialProducts}
+        icon={<ComputerIcon fontSize="large" />}
         isIncrease={false}
-        color={dashboardCardsColor.warningsColor}
+        color={dashboardCardsColor.electricalItemColor}
         percentage={dashboardCardsData.warningCountPercentage}
       />
       <DashboardCard
-        amount={dashboardCardsData.warningCount}
-        title="כמות תקלות במוצרים"
-        icon={<WarningAmberIcon fontSize="large" />}
+        amount={dashboardCardsData.documentsCount}
+        title={Strings.DashboardCardDocuments}
+        icon={<ArticleIcon fontSize="large" />}
         isIncrease={false}
-        color={dashboardCardsColor.warningsColor}
+        color={dashboardCardsColor.documentColor}
         percentage={dashboardCardsData.warningCountPercentage}
       />
     </DashboardCardsWrapper>
