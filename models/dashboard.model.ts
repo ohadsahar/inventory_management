@@ -5,7 +5,9 @@ export interface DashboardModel {
   warningCount: number;
   isIncrease: boolean;
   itemsCountPercentage: number;
-  totalInventoryPercentage: number;
-  updatesWeeklyPercentage: number;
+  totalInventoryCountPercentage: number;
+  updatesWeeklyCountPercentage: number;
   warningCountPercentage: number;
+  electricalItemsCount: number;
+  documentsCount: number;
 }

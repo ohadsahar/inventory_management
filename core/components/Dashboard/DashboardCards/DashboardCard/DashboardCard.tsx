@@ -9,9 +9,9 @@ interface DashboardCardProps {
   amount: number;
   title: string;
   isIncrease: boolean;
-  icon: any;
   color: string;
   percentage: number;
+  icon: any;
 }
 
 const DashboardCard = ({ amount, title, icon, isIncrease, color, percentage }: DashboardCardProps) => {

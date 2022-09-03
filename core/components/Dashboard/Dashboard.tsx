@@ -1,5 +1,5 @@
-import DashboardCards from './DashboardCards/DashboardCards';
-import DashboardCharts from './DashboardCharts/DashboardCharts';
+import DashboardCards from '@/core/components/Dashboard/DashboardCards/DashboardCards';
+import DashboardCharts from '@/core/components/Dashboard/DashboardCharts/DashboardCharts';
 import { DashboardWrapper } from './Styled';
 
 const Dashboard = () => {
