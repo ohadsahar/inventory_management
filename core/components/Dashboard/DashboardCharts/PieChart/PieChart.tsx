@@ -12,7 +12,7 @@ const PieChart = () => {
         type="pie"
         data={pieChartData}
         options={pieLightOptions}
-        width="100%"
+        width="75%"
         height="100%"
         style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       />
