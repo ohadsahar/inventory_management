@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-export const TableHeader = styled.div`
-  display: flex;
-  flex-direction: column;
-  grid-row-gap: 2vh;
-`;
-
 export const InventoryTableWrapper = styled.div`
   padding: 16px;
   > .p-datatable .p-datatable-tbody > tr > td {
@@ -33,12 +27,7 @@ export const InventoryTableWrapper = styled.div`
   }
 `;
 
-export const TableHeaderActions = styled.div`
-  display: flex;
-  grid-column-gap: 1vw;
-`;
-
-export const TableRowActions = styled.div`
+export const TableRowActionsWrapper = styled.div`
   display: flex;
   grid-column-gap: 1vw;
 `;

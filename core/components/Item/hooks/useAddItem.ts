@@ -1,4 +1,4 @@
-import { ItemProps } from 'models/item.model';
+import { ProductProps } from 'models/product.model';
 import { useCallback, useMemo, useState } from 'react';
 import { createItem } from 'redux/InventorySlice/AsyncFunctions/handleItem';
 import { useAppDispatch } from 'redux/store';
@@ -10,11 +10,11 @@ export const useAddItem = () => {
 
   const dispatch = useAppDispatch();
   const [createMode, setCreateMode] = useState<boolean>(false);
-  const [itemToAdd, setItemToAdd] = useState<ItemProps>(initialItem);
+  const [itemToAdd, setItemToAdd] = useState<ProductProps>(initialItem);
 
   const handleAction = useCallback(
     (fieldName: string, currentValue: any) => {
-      const itemToUpdate: ItemProps = { ...itemToAdd };
+      const itemToUpdate: ProductProps = { ...itemToAdd };
       switch (fieldName) {
         case 'numOfUnits':
           itemToUpdate.numOfUnits = currentValue;

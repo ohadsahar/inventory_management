@@ -16,7 +16,7 @@ const AddItemForm = () => {
   ) : (
     <ItemFormWrapper>
       <InputWrapper>
-        <Typography type={TextType.LABEL} text={Strings.NameOfItem} />
+        <Typography type={TextType.LABEL} text={Strings.GlobalProductTitle} />
         <AppInput fieldName="name" onAction={handleAction} />
       </InputWrapper>
       <InputWrapper>

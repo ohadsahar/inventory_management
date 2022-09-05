@@ -1,11 +1,11 @@
 import { Strings } from '@/config/Strings';
 import { TextType } from '@/config/TextType';
 import Typography from '@/shared/Typography/Typography';
-import { ItemProps } from 'models/item.model';
+import { ProductProps } from 'models/product.model';
 import ItemActions from '@/core/components/Item/Actions/ItemActions/ItemActions';
 import { ItemWrapper } from './Styled';
 
-const Item = ({ id, name, numOfUnits, minimumForAlert, onEdit, onDelete }: ItemProps) => {
+const Item = ({ id, name, numOfUnits, minimumForAlert, onEdit, onDelete }: ProductProps) => {
   return (
     <ItemWrapper>
       <Typography text={name} type={TextType.HINT} />
