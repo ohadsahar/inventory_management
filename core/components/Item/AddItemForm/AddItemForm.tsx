@@ -21,11 +21,19 @@ const AddItemForm = () => {
       </InputWrapper>
       <InputWrapper>
         <Typography type={TextType.LABEL} text={Strings.UnitInInventory} />
-        <ItemActions currentValue={itemToAdd.numOfUnits} onAction={handleAction} fieldName={'numOfUnits'} />
+        <ItemActions
+          currentValue={itemToAdd.numOfUnits}
+          onAction={handleAction}
+          fieldName={'numOfUnits'}
+        />
       </InputWrapper>
       <InputWrapper>
         <Typography type={TextType.LABEL} text={Strings.UnitBeforeWarning} />
-        <ItemActions currentValue={itemToAdd.minimumForAlert} onAction={handleAction} fieldName={'minimumForAlert'} />
+        <ItemActions
+          currentValue={itemToAdd.minimumForAlert}
+          onAction={handleAction}
+          fieldName={'minimumForAlert'}
+        />
       </InputWrapper>
       <HandleItemActions onSubmit={onSubmit} />
     </ItemFormWrapper>

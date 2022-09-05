@@ -25,11 +25,19 @@ const EditItemForm = ({ id, name, numOfUnits, minimumForAlert, onFinished }: Ite
       </InputWrapper>
       <InputWrapper>
         <Typography type={TextType.LABEL} text={Strings.UnitInInventory} />
-        <ItemActions currentValue={currentItem.numOfUnits} onAction={handleAction} fieldName={'numOfUnits'} />
+        <ItemActions
+          currentValue={currentItem.numOfUnits}
+          onAction={handleAction}
+          fieldName={'numOfUnits'}
+        />
       </InputWrapper>
       <InputWrapper>
         <Typography type={TextType.LABEL} text={Strings.UnitBeforeWarning} />
-        <ItemActions currentValue={currentItem.minimumForAlert} onAction={handleAction} fieldName={'minimumForAlert'} />
+        <ItemActions
+          currentValue={currentItem.minimumForAlert}
+          onAction={handleAction}
+          fieldName={'minimumForAlert'}
+        />
       </InputWrapper>
       <HandleItemActions onSubmit={onSubmit} />
     </ItemFormWrapper>

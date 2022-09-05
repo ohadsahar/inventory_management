@@ -1,4 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import 'primereact/resources/themes/lara-light-indigo/theme.css'; //theme
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -21,6 +24,26 @@ p {
     color:black;
     font-weight:300;
     line-height:1.2;
+}
+
+.p-dock-left {
+    margin-top:64px;
+    background-color:#0d3a83;
+}
+
+.p-dock-container{
+    margin-bottom:64px;
+}
+
+.p-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 6px;
+}
+
+.p-datatable .p-paginator-bottom {
+    direction:ltr;
 }
 `;
 

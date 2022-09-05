@@ -1,15 +1,10 @@
-import React from 'react';
-import AddItemForm from '../Item/AddItemForm/AddItemForm';
-import ItemsList from '../Item/ItemsList/ItemsList';
-import SearchBar from '../SearchBar/SearchBar';
+import InventoryTable from './InventoryTable/InventoryTable';
 import { InventoryWrapper } from './Styled';
 
 const Inventory = () => {
   return (
     <InventoryWrapper>
-      <SearchBar />
-      <AddItemForm />
-      <ItemsList />
+      <InventoryTable />
     </InventoryWrapper>
   );
 };

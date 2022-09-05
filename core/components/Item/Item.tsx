@@ -9,8 +9,14 @@ const Item = ({ id, name, numOfUnits, minimumForAlert, onEdit, onDelete }: ItemP
   return (
     <ItemWrapper>
       <Typography text={name} type={TextType.HINT} />
-      <Typography text={`${Strings.UnitInInventory} ${numOfUnits.toString()}`} type={TextType.HINT} />
-      <Typography text={`${Strings.UnitBeforeWarning} ${minimumForAlert.toString()}`} type={TextType.HINT} />
+      <Typography
+        text={`${Strings.UnitInInventory} ${numOfUnits.toString()}`}
+        type={TextType.HINT}
+      />
+      <Typography
+        text={`${Strings.UnitBeforeWarning} ${minimumForAlert.toString()}`}
+        type={TextType.HINT}
+      />
       {onEdit && onDelete && <ItemActions id={id} onEdit={onEdit} onDelete={onDelete} />}
     </ItemWrapper>
   );

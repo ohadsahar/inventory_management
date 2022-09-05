@@ -58,7 +58,9 @@ const inventorySlice = createSlice({
       state.error = 'Error while trying to delete item';
     });
     builder.addCase(updateItem.fulfilled, (state, action: PayloadAction<ItemProps>) => {
-      const itemToUpdateIndex = state.initialItems.findIndex((item: ItemProps) => item.id === action.payload.id);
+      const itemToUpdateIndex = state.initialItems.findIndex(
+        (item: ItemProps) => item.id === action.payload.id
+      );
       state.initialItems[itemToUpdateIndex] = action.payload;
       state.loading = false;
     });

@@ -29,6 +29,5 @@ export const useDrawer = () => {
       },
     };
   }, [drawerWidth]);
-
   return { accountName, currentLayout, drawerItems, drawerWidth, drawerStyle, setCurrentLayout };
 };
