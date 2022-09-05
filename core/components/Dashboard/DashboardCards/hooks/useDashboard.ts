@@ -1,20 +1,10 @@
+import { dashboardCardsColor } from 'mock';
 import { DashboardModel } from 'models/dashboard.model';
-import { useMemo } from 'react';
 
 export const useDashboard = () => {
-  const dashboardCardsColor = useMemo(() => {
-    return {
-      itemsColor: '#a4dfcd',
-      totalInventoryColor: '#623cea',
-      weeklyUpdateColor: '#a4dbfe',
-      warningsColor: '#ff9f0b',
-      electricalItemColor: '#FFA987',
-      documentColor: '#004E89',
-    };
-  }, []);
   const dashboardCardsData: DashboardModel = {
-    itemsCount: 10,
-    totalInventoryCount: 132,
+    itemsCount: 140,
+    totalInventoryCount: 650,
     updatesWeeklyCount: 50,
     warningCount: 10,
     electricalItemsCount: 4,

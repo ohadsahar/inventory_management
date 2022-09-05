@@ -47,14 +47,6 @@ const DashboardCards = () => {
         percentage={dashboardCardsData.warningCountPercentage}
       />
       <DashboardCard
-        amount={dashboardCardsData.electricalItemsCount}
-        title={Strings.DashboardCardElectrialProducts}
-        icon={<ComputerIcon fontSize="large" />}
-        isIncrease={false}
-        color={dashboardCardsColor.electricalItemColor}
-        percentage={dashboardCardsData.warningCountPercentage}
-      />
-      <DashboardCard
         amount={dashboardCardsData.documentsCount}
         title={Strings.DashboardCardDocuments}
         icon={<ArticleIcon fontSize="large" />}

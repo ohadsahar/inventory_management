@@ -21,6 +21,11 @@
       "@/config/*": ["config/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "core/components/AppDock/hooks/useDrawer.tsס"
+  ],
   "exclude": ["node_modules"]
 }

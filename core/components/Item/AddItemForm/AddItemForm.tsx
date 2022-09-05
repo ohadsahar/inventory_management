@@ -16,16 +16,24 @@ const AddItemForm = () => {
   ) : (
     <ItemFormWrapper>
       <InputWrapper>
-        <Typography type={TextType.LABEL} text={Strings.NameOfItem} />
+        <Typography type={TextType.LABEL} text={Strings.GlobalProductTitle} />
         <AppInput fieldName="name" onAction={handleAction} />
       </InputWrapper>
       <InputWrapper>
         <Typography type={TextType.LABEL} text={Strings.UnitInInventory} />
-        <ItemActions currentValue={itemToAdd.numOfUnits} onAction={handleAction} fieldName={'numOfUnits'} />
+        <ItemActions
+          currentValue={itemToAdd.numOfUnits}
+          onAction={handleAction}
+          fieldName={'numOfUnits'}
+        />
       </InputWrapper>
       <InputWrapper>
         <Typography type={TextType.LABEL} text={Strings.UnitBeforeWarning} />
-        <ItemActions currentValue={itemToAdd.minimumForAlert} onAction={handleAction} fieldName={'minimumForAlert'} />
+        <ItemActions
+          currentValue={itemToAdd.minimumForAlert}
+          onAction={handleAction}
+          fieldName={'minimumForAlert'}
+        />
       </InputWrapper>
       <HandleItemActions onSubmit={onSubmit} />
     </ItemFormWrapper>

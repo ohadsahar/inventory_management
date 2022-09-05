@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ItemProps } from 'models/item.model';
+import { ProductProps } from 'models/product.model';
 import { RootState } from '../store';
-import { createItem, deleteItem, getItems, updateItem } from './AsyncFunctions/handleItem';
+import { createItem, deleteItem, getProducts, updateItem } from './AsyncFunctions/handleItem';
 
 interface initialState {
-  initialItems: ItemProps[];
+  initialProducts: ProductProps[];
   loading: boolean;
   error: string;
 }
 
 const initialState: initialState = {
-  initialItems: [],
+  initialProducts: [],
   loading: false,
   error: '',
 };
@@ -20,21 +20,21 @@ const inventorySlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(getItems.fulfilled, (state, action: PayloadAction<any>) => {
+    builder.addCase(getProducts.fulfilled, (state, action: PayloadAction<any>) => {
       state.loading = false;
-      state.initialItems = action.payload;
+      state.initialProducts = action.payload;
     });
-    builder.addCase(getItems.pending, (state) => {
+    builder.addCase(getProducts.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(getItems.rejected, (state) => {
+    builder.addCase(getProducts.rejected, (state) => {
       state.loading = false;
-      state.initialItems = [];
+      state.initialProducts = [];
       state.error = 'Error with loading items';
     });
-    builder.addCase(createItem.fulfilled, (state, action: PayloadAction<ItemProps>) => {
+    builder.addCase(createItem.fulfilled, (state, action: PayloadAction<ProductProps>) => {
       state.loading = false;
-      state.initialItems = [...state.initialItems, action.payload];
+      state.initialProducts = [...state.initialProducts, action.payload];
     });
     builder.addCase(createItem.pending, (state) => {
       state.loading = true;
@@ -44,11 +44,11 @@ const inventorySlice = createSlice({
       state.error = 'Error with adding current item';
     });
     builder.addCase(deleteItem.fulfilled, (state, action: PayloadAction<string>) => {
-      const updatedItems = [...state.initialItems];
-      const index = updatedItems.findIndex((item: ItemProps) => item.id === action.payload);
+      const updatedItems = [...state.initialProducts];
+      const index = updatedItems.findIndex((item: ProductProps) => item.id === action.payload);
       updatedItems.splice(index, 1);
       state.loading = false;
-      state.initialItems = updatedItems;
+      state.initialProducts = updatedItems;
     });
     builder.addCase(deleteItem.pending, (state) => {
       state.loading = true;
@@ -57,13 +57,15 @@ const inventorySlice = createSlice({
       state.loading = false;
       state.error = 'Error while trying to delete item';
     });
-    builder.addCase(updateItem.fulfilled, (state, action: PayloadAction<ItemProps>) => {
-      const itemToUpdateIndex = state.initialItems.findIndex((item: ItemProps) => item.id === action.payload.id);
-      state.initialItems[itemToUpdateIndex] = action.payload;
+    builder.addCase(updateItem.fulfilled, (state, action: PayloadAction<ProductProps>) => {
+      const itemToUpdateIndex = state.initialProducts.findIndex(
+        (item: ProductProps) => item.id === action.payload.id
+      );
+      state.initialProducts[itemToUpdateIndex] = action.payload;
       state.loading = false;
     });
   },
 });
 
-export const selectAllItems = (state: RootState) => state.inventory.initialItems;
+export const selectAllProducts = (state: RootState) => state.inventory.initialProducts;
 export default inventorySlice.reducer;

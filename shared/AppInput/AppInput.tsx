@@ -11,7 +11,9 @@ const AppInput = ({ fieldName, defaultValue, onAction }: AppInputProps) => {
   return (
     <AppInputWrapper
       defaultValue={defaultValue}
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onAction(fieldName, e.currentTarget.value)}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        onAction(fieldName, e.currentTarget.value)
+      }
     />
   );
 };

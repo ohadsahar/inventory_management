@@ -1,8 +1,8 @@
-import Layout from '@/core/components/Layout/Layout';
+import AppDock from '@/core/components/AppDock/AppDock';
 import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
-  return <Layout />;
+  return <AppDock />;
 };
 
 export default Home;

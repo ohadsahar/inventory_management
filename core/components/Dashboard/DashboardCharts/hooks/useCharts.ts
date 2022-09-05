@@ -59,10 +59,18 @@ export const useCharts = () => {
   });
 
   const [pieChartData] = useState({
-    labels: [Strings.DashboardCardTitleItems, Strings.DashboardCardTitleTotalInventory, Strings.DashboardCardTitleWeeklyUpdates],
+    labels: [
+      Strings.DashboardCardTitleItems,
+      Strings.DashboardCardTitleTotalInventory,
+      Strings.DashboardCardTitleWeeklyUpdates,
+    ],
     datasets: [
       {
-        data: [dashboardCardsData.itemsCount, dashboardCardsData.totalInventoryCount, dashboardCardsData.updatesWeeklyCount],
+        data: [
+          dashboardCardsData.itemsCount,
+          dashboardCardsData.totalInventoryCount,
+          dashboardCardsData.updatesWeeklyCount,
+        ],
         backgroundColor: [
           dashboardCardsColor.itemsColor,
           dashboardCardsColor.totalInventoryColor,
