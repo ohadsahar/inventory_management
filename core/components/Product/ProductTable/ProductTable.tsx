@@ -1,12 +1,13 @@
 import { Strings } from '@/config/Strings';
 import CreateProductDialog from '@/core/components/Dialogs/CreateProductDialog/CreateProductDialog';
-import { useInventory } from '@/core/components/Inventory/hooks/useInventory';
-import InventoryTableHeader from '@/core/components/Inventory/InventoryTable/InventoryTableHeader/InventoryTableHeader';
-import InventoryTableToolbar from '@/core/components/Inventory/InventoryTable/InventoryTableToolbar/InventoryTableToolbar';
+import { useProduct } from '@/core/components/Product/hooks/useProduct';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
-import { InventoryTableWrapper } from './Styled';
-const InventoryTable = () => {
+import { useProductTable } from '../hooks/useProductTable';
+import ProductTableHeader from './ProductTableHeader/ProductTableHeader';
+import ProductTableToolbar from './ProductTableToolbar/ProductTableToolbar';
+import { ProductTableWrapper } from './Styled';
+const ProductTable = () => {
   const {
     products,
     toast,
@@ -21,12 +22,12 @@ const InventoryTable = () => {
     actionBodyTemplate,
     setCreateProductMode,
     hideDialog,
-  } = useInventory();
+  } = useProductTable();
 
   return (
-    <InventoryTableWrapper>
+    <ProductTableWrapper>
       <CreateProductDialog createProductMode={createProductMode} hideDialog={hideDialog} />
-      <InventoryTableToolbar setCreateProductMode={setCreateProductMode} />
+      <ProductTableToolbar setCreateProductMode={setCreateProductMode} />
       <DataTable
         dataKey="id"
         responsiveLayout="scroll"
@@ -42,7 +43,7 @@ const InventoryTable = () => {
         rowsPerPageOptions={paginatorConfig.rowsPerPageOptions}
         paginatorTemplate={paginatorConfig.paginatorTemplate}
         currentPageReportTemplate="מציג {first} עד {last} מתוך {totalRecords} מוצרי מזון"
-        header={<InventoryTableHeader productsLength={products?.length} />}
+        header={<ProductTableHeader productsLength={products?.length} />}
       >
         <Column
           selectionMode="multiple"
@@ -61,8 +62,8 @@ const InventoryTable = () => {
         <Column body={actionBodyTemplate} exportable={false} style={{ minWidth: '8rem' }}></Column>
         <Column expander style={{ width: '3em' }} />
       </DataTable>
-    </InventoryTableWrapper>
+    </ProductTableWrapper>
   );
 };
 
-export default InventoryTable;
+export default ProductTable;

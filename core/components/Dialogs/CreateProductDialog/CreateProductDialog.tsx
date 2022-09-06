@@ -3,7 +3,7 @@ import { Strings } from '@/config/Strings';
 import AppInput from '@/shared/AppInput/AppInput';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
-import { useProduct } from '../../Inventory/hooks/useProduct';
+import { useProduct } from '../../Product/hooks/useProduct';
 import { ProductDialogButtonActions, ProductDialogWrapper } from './Styled';
 
 interface CreateProductDialogProps {

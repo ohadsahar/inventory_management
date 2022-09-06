@@ -23,12 +23,12 @@ const DashboardCards = () => {
         percentage={dashboardCardsData.itemsCountPercentage}
       />
       <DashboardCard
-        amount={dashboardCardsData.totalInventoryCount}
-        title={Strings.DashboardCardTitleTotalInventory}
+        amount={dashboardCardsData.totalProductCount}
+        title={Strings.DashboardCardTitleTotalProduct}
         icon={<CategoryIcon fontSize="large" />}
         isIncrease={false}
-        color={dashboardCardsColor.totalInventoryColor}
-        percentage={dashboardCardsData.totalInventoryCountPercentage}
+        color={dashboardCardsColor.totalProductColor}
+        percentage={dashboardCardsData.totalProductCountPercentage}
       />
       <DashboardCard
         amount={dashboardCardsData.updatesWeeklyCount}

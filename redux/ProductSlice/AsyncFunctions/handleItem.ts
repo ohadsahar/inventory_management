@@ -13,7 +13,7 @@ export const createProduct = createAsyncThunk(
   }
 );
 
-export const updateItem = createAsyncThunk('api/updateItem', async (product: ProductProps) => {
+export const updateItem = createAsyncThunk('api/updateProduct', async (product: ProductProps) => {
   return product;
 });
 

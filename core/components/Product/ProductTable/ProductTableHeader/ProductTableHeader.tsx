@@ -3,27 +3,27 @@ import { Strings } from '@/config/Strings';
 import Typography from '@/shared/Typography/Typography';
 import { InputText } from 'primereact/inputtext';
 import React from 'react';
-import { useInventory } from '../../hooks/useInventory';
+import { useProductTable } from '../../hooks/useProductTable';
 import { TableHeader } from './Styled';
 
-const InventoryTableHeader = ({ productsLength }: { productsLength: number }) => {
-  const { onSearch } = useInventory();
+const ProductTableHeader = ({ productsLength }: { productsLength: number }) => {
+  const { onSearch } = useProductTable();
   return (
     <TableHeader>
       <Typography
         type={TextType.REGULAR}
-        text={`${Strings.InventoryTableTotalRecords} ${productsLength}`}
+        text={`${Strings.ProductTableTotalRecords} ${productsLength}`}
       />
       <span className="p-input-icon-left">
         <i className="pi pi-search" />
         <InputText
           type="search"
           onInput={(e: React.ChangeEvent<HTMLInputElement>) => onSearch(e.currentTarget.value)}
-          placeholder={Strings.InventoryTableSearch}
+          placeholder={Strings.ProductTableSearch}
         />
       </span>
     </TableHeader>
   );
 };
 
-export default InventoryTableHeader;
+export default ProductTableHeader;

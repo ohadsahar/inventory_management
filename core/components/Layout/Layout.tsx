@@ -1,5 +1,5 @@
 import Dashboard from '@/core/components/Dashboard/Dashboard';
-import Inventory from '@/core/components/Inventory/Inventory';
+import Product from '@/core/components/Product/Product';
 import { LayoutComponentsWrapper } from './Styled';
 
 interface LayoutProps {
@@ -10,7 +10,7 @@ const Layout = ({ currentLayout }: LayoutProps) => {
   return (
     <LayoutComponentsWrapper>
       {currentLayout === '1' && <Dashboard />}
-      {currentLayout === '2' && <Inventory />}
+      {currentLayout === '2' && <Product />}
     </LayoutComponentsWrapper>
   );
 };
