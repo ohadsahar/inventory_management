@@ -15,7 +15,7 @@ export const months = [
 
 export const dashboardCardsColor = {
   itemsColor: '#a4dfcd',
-  totalInventoryColor: '#623cea',
+  totalProductColor: '#623cea',
   weeklyUpdateColor: '#a4dbfe',
   warningsColor: '#ff9f0b',
   electricalItemColor: '#FFA987',
@@ -25,14 +25,14 @@ export const dashboardCardsColor = {
 //Should delete on server ready
 export const dynamicMockDashboard = {
   itemsCount: 10,
-  totalInventoryCount: 132,
+  totalProductCount: 132,
   updatesWeeklyCount: 50,
   warningCount: 10,
   electricalItemsCount: 4,
   documentsCount: 10,
   isIncrease: true,
   itemsCountPercentage: 0.75,
-  totalInventoryCountPercentage: 0.5,
+  totalProductCountPercentage: 0.5,
   updatesWeeklyCountPercentage: 0.25,
   warningCountPercentage: 0.8,
 };

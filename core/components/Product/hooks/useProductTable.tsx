@@ -4,12 +4,12 @@ import { Button } from 'primereact/button';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 import { useState, useRef, useCallback, useMemo, useEffect } from 'react';
-import { deleteProduct, getProducts } from 'redux/InventorySlice/AsyncFunctions/handleItem';
-import { selectAllProducts } from 'redux/InventorySlice/inventorySlice';
+import { deleteProduct, getProducts } from 'redux/ProductSlice/AsyncFunctions/handleItem';
+import { selectAllProducts } from 'redux/ProductSlice/ProductSlice';
 import { useAppDispatch, useAppSelector } from 'redux/store';
-import { TableRowActionsWrapper } from '../InventoryTable/Styled';
+import { TableRowActionsWrapper } from '../ProductTable/Styled';
 
-export const useInventory = () => {
+export const useProductTable = () => {
   const dispatch = useAppDispatch();
   const products: ProductProps[] = useAppSelector(selectAllProducts);
   const [expandedRows, setExpandedRows] = useState<any>();

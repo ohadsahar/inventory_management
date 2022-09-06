@@ -15,8 +15,8 @@ const initialState: initialState = {
   error: '',
 };
 
-const inventorySlice = createSlice({
-  name: 'inventory',
+const productSlice = createSlice({
+  name: 'product',
   initialState,
   reducers: {},
   extraReducers(builder) {
@@ -67,5 +67,5 @@ const inventorySlice = createSlice({
   },
 });
 
-export const selectAllProducts = (state: RootState) => state.inventory.initialProducts;
-export default inventorySlice.reducer;
+export const selectAllProducts = (state: RootState) => state.product.initialProducts;
+export default productSlice.reducer;

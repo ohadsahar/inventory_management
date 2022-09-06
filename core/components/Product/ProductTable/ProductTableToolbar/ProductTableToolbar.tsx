@@ -1,12 +1,12 @@
 import { Strings } from '@/config/Strings';
-import { useInventory } from '@/core/components/Inventory/hooks/useInventory';
+import { useProductTable } from '@/core/components/Product/hooks/useProductTable';
 import { Button } from 'primereact/button';
 import { FileUpload } from 'primereact/fileupload';
 import { Toolbar } from 'primereact/toolbar';
 import { TableHeaderActions } from './Styled';
 
-const InventoryTableToolbar = ({ setCreateProductMode }: { setCreateProductMode: any }) => {
-  const { importCSV } = useInventory();
+const ProductTableToolbar = ({ setCreateProductMode }: { setCreateProductMode: any }) => {
+  const { importCSV } = useProductTable();
   return (
     <Toolbar
       className="mb-4"
@@ -14,12 +14,12 @@ const InventoryTableToolbar = ({ setCreateProductMode }: { setCreateProductMode:
         <TableHeaderActions>
           <Button
             onClick={() => setCreateProductMode(true)}
-            label={Strings.InventoryTableNewItem}
+            label={Strings.ProductTableNewItem}
             icon="pi pi-plus ml-2"
             className="p-button-success"
           />
           <Button
-            label={Strings.InventoryTableDeleteSelectedItems}
+            label={Strings.ProductTableDeleteSelectedItems}
             icon="pi pi-trash ml-2"
             className="p-button-danger"
           />
@@ -32,7 +32,7 @@ const InventoryTableToolbar = ({ setCreateProductMode }: { setCreateProductMode:
           auto
           url="https://primefaces.org/primereact/showcase/upload.php"
           accept=".csv"
-          chooseLabel={Strings.InventoryTableImportExcelFile}
+          chooseLabel={Strings.ProductTableImportExcelFile}
           onUpload={importCSV}
         />
       }
@@ -40,4 +40,4 @@ const InventoryTableToolbar = ({ setCreateProductMode }: { setCreateProductMode:
   );
 };
 
-export default InventoryTableToolbar;
+export default ProductTableToolbar;

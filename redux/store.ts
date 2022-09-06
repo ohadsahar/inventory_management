@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import inventoryReducer from './InventorySlice/inventorySlice';
+import productReducer from './ProductSlice/ProductSlice';
 
 const store = configureStore({
   reducer: {
-    inventory: inventoryReducer,
+    product: productReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

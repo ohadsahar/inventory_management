@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export const useCharts = () => {
   const dashboardCardsData: DashboardModel = dynamicMockDashboard;
-  const yearlyInventory = [7, 52, 24, 74, 23, 21, 32];
+  const yearlyProducts = [7, 52, 24, 74, 23, 21, 32];
   const yearlyWarnings = [200, 84, 24, 75, 37, 65, 34];
 
   const [chartData] = useState({
@@ -23,7 +23,7 @@ export const useCharts = () => {
         type: 'bar',
         label: 'אזהרות',
         backgroundColor: '#FFA726',
-        data: yearlyInventory,
+        data: yearlyProducts,
       },
     ],
   });
@@ -61,19 +61,19 @@ export const useCharts = () => {
   const [pieChartData] = useState({
     labels: [
       Strings.DashboardCardTitleItems,
-      Strings.DashboardCardTitleTotalInventory,
+      Strings.DashboardCardTitleTotalProduct,
       Strings.DashboardCardTitleWeeklyUpdates,
     ],
     datasets: [
       {
         data: [
           dashboardCardsData.itemsCount,
-          dashboardCardsData.totalInventoryCount,
+          dashboardCardsData.totalProductCount,
           dashboardCardsData.updatesWeeklyCount,
         ],
         backgroundColor: [
           dashboardCardsColor.itemsColor,
-          dashboardCardsColor.totalInventoryColor,
+          dashboardCardsColor.totalProductColor,
           dashboardCardsColor.weeklyUpdateColor,
         ],
         hoverBackgroundColor: ['#64B5F6', '#81C784', '#FFB74D'],

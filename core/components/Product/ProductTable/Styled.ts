@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const InventoryTableWrapper = styled.div`
+export const ProductTableWrapper = styled.div`
   padding: 16px;
   > .p-datatable .p-datatable-tbody > tr > td {
     text-align: right;

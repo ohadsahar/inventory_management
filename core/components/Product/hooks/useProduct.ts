@@ -3,7 +3,7 @@ import { Strings } from '@/config/Strings';
 import { ProductProps } from 'models/product.model';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
-import { createProduct } from 'redux/InventorySlice/AsyncFunctions/handleItem';
+import { createProduct } from 'redux/ProductSlice/AsyncFunctions/handleItem';
 import { useAppDispatch } from 'redux/store';
 
 export const useProduct = (hideDialog: () => void, product?: ProductProps) => {
@@ -32,6 +32,7 @@ export const useProduct = (hideDialog: () => void, product?: ProductProps) => {
       ? ProductStatusType.OUT_OF_STOCK
       : ProductStatusType.STOCK;
   };
+
   const validateProductLabelView = (productStatus: ProductStatusType) => {
     if (productStatus === ProductStatusType.STOCK) {
       return Strings.Stock;
@@ -41,6 +42,7 @@ export const useProduct = (hideDialog: () => void, product?: ProductProps) => {
       return Strings.OutOfStock;
     }
   };
+
   const onSubmit = useCallback(
     (data: any) => {
       const productLabel = validateProductStatus(data.minimumForAlert, data.numOfUnits);

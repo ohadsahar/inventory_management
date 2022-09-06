@@ -142,7 +142,7 @@ export const items = [
 
 export const dashboardCardsColor = {
   itemsColor: '#a4dfcd',
-  totalInventoryColor: '#623cea',
+  totalProductColor: '#623cea',
   weeklyUpdateColor: '#a4dbfe',
   warningsColor: '#ff9f0b',
   electricalItemColor: '#FFA987',
