@@ -2,7 +2,7 @@ export const enum Strings {
   SearchBarPlaceholder = 'חיפוש...(ניתן לחפש לפי שם המוצר, סוג המוצר)',
   UnitInInventory = "יח' במלאי:",
   UnitBeforeWarning = 'יח׳ לפני אזהרה:',
-  DashboardCardTitleItems = 'מוצרים',
+  DashboardCardTitleItems = 'מוצרי מזון',
   DashboardCardTitleTotalInventory = 'סה״כ מלאי',
   DashboardCardTitleWeeklyUpdates = 'כמות עדכונים שבועי',
   DashboardCardTitleWarnings = 'כמות אזהרות',
@@ -10,14 +10,31 @@ export const enum Strings {
   DashboardCardPercentageDown = 'ירידה של',
   DashboardCardDocuments = 'קבלות',
   InventoryTableNewItem = 'מוצר חדש',
-  InventoryTableDeleteSelectedItems = 'מחיקת מוצרים מסומנים',
+  InventoryTableDeleteSelectedItems = 'מחיקת מוצרי מזון מסומנים',
   InventoryTableImportExcelFile = 'יבא קובץ אקסל',
-  InventoryTablePaginatorTitle = `מציג {first} עד {last} מתוך {totalRecords} מוצרים`,
-  InventoryTableTotalRecords = 'כמות מוצרים:',
+  InventoryTablePaginatorTitle = `מציג {first} עד {last} מתוך {totalRecords} מוצרי מזון`,
+  InventoryTableTotalRecords = 'כמות מוצרי מזון:',
   InventoryTableSearch = 'חיפוש...',
-  GlobalIDTitle = 'מס׳ זיהוי',
-  GlobalProductTitle = 'שם המוצר',
-  GlobalAmountStocktitle = 'כמות במלאי',
-  GlobalAmountBeforeWarningTitle = 'כמות לפני אזהרה',
-  GlobalStatusTitle = 'סטטוס',
+
+  LabelIDTitle = 'מס׳ זיהוי',
+  LabelProductTitle = 'שם המוצר',
+  LabellAmountStocktitle = 'כמות במלאי',
+  LabelAmountBeforeWarningTitle = 'כמות לפני אזהרה',
+  LabellStatusTitle = 'סטטוס',
+  LabelUpdateName = 'שם המעדכן',
+
+  //** I18N */
+  Stock = 'במלאי',
+  LowStock = 'אזהרה',
+  OutOfStock = 'לא במלאי',
+
+  //** Errors **/
+  ErrorProductName = 'חייב להכניס שם מוצר',
+  ErrorNumOfUnits = 'מלאי חייב להיות לפחות 1',
+  ErrorWarningNumOfUnits = 'אזהרת מלאי חייבת להיות 1 לפחות',
+
+  //** Placeholders **/
+  ProductTitlePlaceholder = 'הקלד/י את שם המוצר',
+  ProductNumOfUnitsPlaceholder = 'הקלד/י כמות מלאי',
+  ProductWarningNumOfUnitsPlaceholder = 'הקלד/י את המינימום לכמות במלאי עבור אזהרה',
 }

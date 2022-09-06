@@ -15,12 +15,12 @@ const InventoryTableToolbar = ({ setCreateProductMode }: { setCreateProductMode:
           <Button
             onClick={() => setCreateProductMode(true)}
             label={Strings.InventoryTableNewItem}
-            icon="pi pi-plus"
+            icon="pi pi-plus ml-2"
             className="p-button-success"
           />
           <Button
             label={Strings.InventoryTableDeleteSelectedItems}
-            icon="pi pi-trash"
+            icon="pi pi-trash ml-2"
             className="p-button-danger"
           />
         </TableHeaderActions>

@@ -1,5 +1,5 @@
+import { TextType } from '@/config/Enums/TextType';
 import { Strings } from '@/config/Strings';
-import { TextType } from '@/config/TextType';
 import Typography from '@/shared/Typography/Typography';
 import { InputText } from 'primereact/inputtext';
 import React from 'react';

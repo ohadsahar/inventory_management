@@ -1,4 +1,4 @@
-import { TextType } from '@/config/TextType';
+import { TextType } from '@/config/Enums/TextType';
 import React from 'react';
 import { HintText, InputLabel, RegularText, TitleText } from './Styled';
 

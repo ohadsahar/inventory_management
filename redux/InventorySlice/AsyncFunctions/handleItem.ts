@@ -2,18 +2,21 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ProductProps } from 'models/product.model';
 import { items } from 'mock';
 
-export const getProducts = createAsyncThunk('api/getItems', async () => {
+export const getProducts = createAsyncThunk('api/getProducts', async () => {
   return items;
 });
 
-export const createItem = createAsyncThunk('api/createTask', async (item: ProductProps) => {
-  return item;
+export const createProduct = createAsyncThunk(
+  'api/createProduct',
+  async (product: ProductProps) => {
+    return product;
+  }
+);
+
+export const updateItem = createAsyncThunk('api/updateItem', async (product: ProductProps) => {
+  return product;
 });
 
-export const updateItem = createAsyncThunk('api/updateItem', async (item: ProductProps) => {
-  return item;
-});
-
-export const deleteItem = createAsyncThunk('api/deleteitem', async (id: string) => {
+export const deleteProduct = createAsyncThunk('api/deleteProduct', async (id: string) => {
   return id;
 });

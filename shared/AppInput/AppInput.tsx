@@ -1,20 +1,53 @@
+import { InputText } from 'primereact/inputtext';
+import { classNames } from 'primereact/utils';
 import React from 'react';
-import { AppInputWrapper } from './Styled';
+import { Controller } from 'react-hook-form';
 
 interface AppInputProps {
   fieldName: string;
-  defaultValue?: string | number;
-  onAction: (fieldName: string, currentValue: number | string) => void;
+  requiredMsg?: string;
+  placeholder?: string;
+  type: string;
+  label: string;
+  autoFocus?: boolean;
+  control: any;
+  errors: any;
 }
 
-const AppInput = ({ fieldName, defaultValue, onAction }: AppInputProps) => {
+const AppInput = ({
+  fieldName,
+  requiredMsg,
+  placeholder,
+  type,
+  label,
+  control,
+  errors,
+  autoFocus,
+}: AppInputProps) => {
   return (
-    <AppInputWrapper
-      defaultValue={defaultValue}
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-        onAction(fieldName, e.currentTarget.value)
-      }
-    />
+    <div className="field pt-4">
+      <span className="p-float-label">
+        <Controller
+          name={fieldName}
+          control={control}
+          rules={{ required: requiredMsg ?? '' }}
+          render={({ field, fieldState }) => (
+            <InputText
+              type={type}
+              placeholder={placeholder}
+              id={field.name}
+              {...field}
+              autoFocus={autoFocus ?? false}
+              className={classNames({ 'p-invalid': fieldState.error })}
+            />
+          )}
+        />
+        <label htmlFor={fieldName} className={classNames({ 'p-error': errors[fieldName] })}>
+          {label}
+        </label>
+      </span>
+      {errors[fieldName] && <small className="p-error">{errors[fieldName].message}</small>}
+    </div>
   );
 };
 

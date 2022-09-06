@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
-import 'primereact/resources/themes/lara-light-indigo/theme.css'; //theme
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.min.css'; //core css
+import 'primeicons/primeicons.css'; // Prime icons
+import 'primeflex/primeflex.css'; // Prime flex
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -44,6 +45,13 @@ p {
 
 .p-datatable .p-paginator-bottom {
     direction:ltr;
+}
+
+.p-button .p-button-icon-left{
+    margin-left:8px;
+}
+.p-float-label label {
+    right:16px;
 }
 `;
 

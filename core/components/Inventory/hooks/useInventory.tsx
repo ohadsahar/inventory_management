@@ -4,7 +4,7 @@ import { Button } from 'primereact/button';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 import { useState, useRef, useCallback, useMemo, useEffect } from 'react';
-import { getProducts } from 'redux/InventorySlice/AsyncFunctions/handleItem';
+import { deleteProduct, getProducts } from 'redux/InventorySlice/AsyncFunctions/handleItem';
 import { selectAllProducts } from 'redux/InventorySlice/inventorySlice';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 import { TableRowActionsWrapper } from '../InventoryTable/Styled';
@@ -16,11 +16,35 @@ export const useInventory = () => {
   const [deleteProductsDialog, setDeleteProductsDialog] = useState<boolean>(false);
   const [selectedProducts, setSelectedProducts] = useState(null);
   const [createProductMode, setCreateProductMode] = useState<boolean>(false);
+  const [editProductMode, setEditProductMode] = useState<boolean>(false);
   const toast = useRef<any>(null);
 
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
+
+  const onEditProduct = useCallback((product: ProductProps) => {
+    setEditProductMode(true);
+  }, []);
+
+  const onDeleteProduct = useCallback(
+    (product: ProductProps) => {
+      dispatch(deleteProduct(product.id));
+    },
+    [dispatch]
+  );
+
+  const onSearch = useCallback((value: string) => {
+    console.log(value);
+  }, []);
+
+  const confirmDeleteSelected = useCallback(() => {
+    setDeleteProductsDialog(true);
+  }, []);
+
+  const importCSV = useCallback((e: any) => {}, []);
+
+  /* Config Functions */
 
   const paginatorConfig = useMemo(() => {
     return {
@@ -31,31 +55,7 @@ export const useInventory = () => {
     };
   }, []);
 
-  const onSaveProduct = useCallback(() => {
-    console.log('Save product');
-  }, []);
-
-  const editProduct = useCallback((product: ProductProps) => {
-    console.log(product);
-  }, []);
-
-  const confirmDeleteProduct = useCallback((product: ProductProps) => {
-    console.log(product);
-  }, []);
-
-  const confirmDeleteSelected = useCallback(() => {
-    setDeleteProductsDialog(true);
-  }, []);
-
-  const onSearch = useCallback((value: string) => {
-    console.log(value);
-  }, []);
-
-  const importCSV = useCallback((e: any) => {}, []);
-
-  const hideDialog = useCallback(() => {
-    setCreateProductMode(false);
-  }, []);
+  /* End Config Functions */
 
   /* UI Functions */
 
@@ -68,12 +68,20 @@ export const useInventory = () => {
   }, []);
 
   const statusCurrentBodyTemplate = useCallback((rowData: any) => {
+    console.log(rowData);
     return (
-      <span className={`status ${rowData?.status?.label.toLowerCase()}`}>
-        {rowData.status?.labelValue}
+      <span className={`status ${rowData?.productStatus?.label.toLowerCase()}`}>
+        {rowData.productStatus?.labelValue}
       </span>
     );
   }, []);
+
+  const hideDialog = useCallback(() => {
+    setCreateProductMode(false);
+    setEditProductMode(false);
+  }, []);
+
+  /* End UI Functions */
 
   const actionBodyTemplate = useCallback(
     (rowData: any) => {
@@ -82,35 +90,36 @@ export const useInventory = () => {
           <Button
             icon="pi pi-pencil"
             className="p-button-rounded p-button-success mr-2"
-            onClick={() => editProduct(rowData)}
+            onClick={() => onEditProduct(rowData)}
           />
           <Button
             icon="pi pi-trash"
             className="p-button-rounded p-button-warning"
-            onClick={() => confirmDeleteProduct(rowData)}
+            onClick={() => onDeleteProduct(rowData)}
           />
         </TableRowActionsWrapper>
       );
     },
-    [confirmDeleteProduct, editProduct]
+    [onDeleteProduct, onEditProduct]
   );
 
   const rowExpansionTemplate = useCallback(
     (data: ProductProps) => {
+      console.log(data);
       return (
         <div className="orders-subtable">
           <DataTable value={data.productHistory} responsiveLayout="scroll">
-            <Column field="id" header={Strings.GlobalIDTitle} sortable />
-            <Column field="name" header={Strings.GlobalProductTitle} sortable />
-            <Column field="numOfUnits" header={Strings.GlobalAmountStocktitle} sortable />
+            <Column field="id" header={Strings.LabelIDTitle} sortable />
+            <Column field="updateName" header={Strings.LabelUpdateName} sortable />
+            <Column field="numOfUnits" header={Strings.LabellAmountStocktitle} sortable />
             <Column
               field="minimumForAlert"
-              header={Strings.GlobalAmountBeforeWarningTitle}
+              header={Strings.LabelAmountBeforeWarningTitle}
               sortable
             />
             <Column
               field="productStatus"
-              header={Strings.GlobalStatusTitle}
+              header={Strings.LabellStatusTitle}
               body={statusOrderBodyTemplate}
               sortable
             ></Column>
@@ -124,23 +133,24 @@ export const useInventory = () => {
   /* End UI Functions */
 
   return {
+    paginatorConfig,
     products,
     toast,
     expandedRows,
     deleteProductsDialog,
     selectedProducts,
-    paginatorConfig,
     createProductMode,
+    editProductMode,
+    setSelectedProducts,
+    onSearch,
+    importCSV,
     hideDialog,
     rowExpansionTemplate,
     statusCurrentBodyTemplate,
-    setSelectedProducts,
     setExpandedRows,
-    importCSV,
     actionBodyTemplate,
-    onSearch,
     setCreateProductMode,
-    onSaveProduct,
     confirmDeleteSelected,
+    setEditProductMode,
   };
 };

@@ -1,5 +1,5 @@
+import { TextType } from '@/config/Enums/TextType';
 import { Strings } from '@/config/Strings';
-import { TextType } from '@/config/TextType';
 import Typography from '@/shared/Typography/Typography';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
