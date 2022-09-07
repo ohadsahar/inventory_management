@@ -1,7 +1,7 @@
 import React from 'react';
 import { PieChartWrapper } from './Styled';
 import { Chart } from 'primereact/chart';
-import { useCharts } from '@/core/components/Dashboard/DashboardCharts/hooks/useCharts';
+import { useCharts } from 'hooks/useCharts';
 
 const PieChart = () => {
   const { pieChartData, pieLightOptions } = useCharts();

@@ -1,5 +1,5 @@
 import { Strings } from '@/config/Strings';
-import { useProductTable } from '@/core/components/Product/hooks/useProductTable';
+import { useProductTable } from '@/hooks/useProductTable';
 import { Button } from 'primereact/button';
 import { FileUpload } from 'primereact/fileupload';
 import { Toolbar } from 'primereact/toolbar';
@@ -17,11 +17,6 @@ const ProductTableToolbar = ({ setCreateProductMode }: { setCreateProductMode: a
             label={Strings.ProductTableNewItem}
             icon="pi pi-plus ml-2"
             className="p-button-success"
-          />
-          <Button
-            label={Strings.ProductTableDeleteSelectedItems}
-            icon="pi pi-trash ml-2"
-            className="p-button-danger"
           />
         </TableHeaderActions>
       }

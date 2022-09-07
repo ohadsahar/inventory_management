@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@/core/*": ["core/*"],
+      "@/hooks/*": ["hooks/*"],
       "@/shared/*": ["shared/*"],
       "@/config/*": ["config/*"]
     }

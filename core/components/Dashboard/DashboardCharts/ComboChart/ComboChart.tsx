@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComboChartWrapper } from './Styled';
 import { Chart } from 'primereact/chart';
-import { useCharts } from '@/core/components/Dashboard/DashboardCharts/hooks/useCharts';
+import { useCharts } from 'hooks/useCharts';
 
 const ComboChart = () => {
   const { chartData, lightOptions } = useCharts();

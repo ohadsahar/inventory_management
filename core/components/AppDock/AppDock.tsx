@@ -1,7 +1,7 @@
 import Layout from '@/core/components/Layout/Layout';
 import AppNavbar from '@/core/components/Navbar/AppNavbar';
 import { Dock } from 'primereact/dock';
-import { useDock } from './hooks/useDock';
+import { useDock } from '../../../hooks/useDock';
 import { Tooltip } from 'primereact/tooltip';
 
 import { AppDockSection, AppDockWrapper } from './Styled';

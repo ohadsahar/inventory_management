@@ -1,7 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductProps } from 'models/product.model';
 import { RootState } from '../store';
-import { createProduct, deleteProduct, getProducts, updateItem } from './AsyncFunctions/handleItem';
+import {
+  createProduct,
+  deleteProduct,
+  getProducts,
+  updateProduct,
+} from './AsyncFunctions/handleProduct';
 
 interface initialState {
   initialProducts: ProductProps[];
@@ -57,7 +62,7 @@ const productSlice = createSlice({
       state.loading = false;
       state.error = 'Error while trying to delete item';
     });
-    builder.addCase(updateItem.fulfilled, (state, action: PayloadAction<ProductProps>) => {
+    builder.addCase(updateProduct.fulfilled, (state, action: PayloadAction<ProductProps>) => {
       const itemToUpdateIndex = state.initialProducts.findIndex(
         (item: ProductProps) => item.id === action.payload.id
       );

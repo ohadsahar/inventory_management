@@ -6,7 +6,7 @@ import ComputerIcon from '@mui/icons-material/Computer';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
-import { useDashboard } from './hooks/useDashboard';
+import { useDashboard } from '../../../../hooks/useDashboard';
 import { DashboardCardsWrapper } from './Styled';
 
 const DashboardCards = () => {

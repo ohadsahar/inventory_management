@@ -3,7 +3,7 @@ import { Strings } from '@/config/Strings';
 import Typography from '@/shared/Typography/Typography';
 import { InputText } from 'primereact/inputtext';
 import React from 'react';
-import { useProductTable } from '../../hooks/useProductTable';
+import { useProductTable } from '@/hooks/useProductTable';
 import { TableHeader } from './Styled';
 
 const ProductTableHeader = ({ productsLength }: { productsLength: number }) => {

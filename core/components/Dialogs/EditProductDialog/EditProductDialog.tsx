@@ -1,17 +1,19 @@
 import { FieldType } from '@/config/Enums/FieldType';
 import { Strings } from '@/config/Strings';
 import AppInput from '@/shared/AppInput/AppInput';
+import { ProductProps } from 'models/product.model';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { useProduct } from '../../../../hooks/useProduct';
-import { ProductDialogButtonActions, ProductDialogWrapper } from './Styled';
+import { ProductDialogButtonActions, ProductDialogWrapper } from '../CreateProductDialog/Styled';
 
-interface CreateProductDialogProps {
-  createProductMode: boolean;
+interface EditProductDialogProps {
+  product: ProductProps | undefined;
+  editProductMode: boolean;
   hideDialog: () => void;
 }
-const CreateProductDialog = ({ createProductMode, hideDialog }: CreateProductDialogProps) => {
-  const { handleSubmit, onSubmit, control, errors } = useProduct(hideDialog);
+const EditProductDialog = ({ product, editProductMode, hideDialog }: EditProductDialogProps) => {
+  const { handleSubmit, onSubmit, control, errors } = useProduct(hideDialog, product);
 
   const productDialogFooter = (
     <ProductDialogWrapper>
@@ -64,9 +66,9 @@ const CreateProductDialog = ({ createProductMode, hideDialog }: CreateProductDia
 
   return (
     <Dialog
-      visible={createProductMode}
+      visible={editProductMode}
       style={{ width: '450px' }}
-      header="יצירת מוצר חדש"
+      header="עריכת מוצר"
       modal
       className="p-fluid"
       footer={productDialogFooter}
@@ -74,4 +76,4 @@ const CreateProductDialog = ({ createProductMode, hideDialog }: CreateProductDia
     ></Dialog>
   );
 };
-export default CreateProductDialog;
+export default EditProductDialog;
