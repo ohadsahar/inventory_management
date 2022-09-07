@@ -26,10 +26,13 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
     handleSubmit,
     reset,
   } = useForm({ defaultValues });
+
   const validateProductStatus = (minimumForAlert: number, numOfUnits: number) => {
+    minimumForAlert = parseInt(minimumForAlert.toString());
+    numOfUnits = parseInt(numOfUnits.toString());
     return minimumForAlert < numOfUnits
       ? ProductStatusType.STOCK
-      : minimumForAlert > numOfUnits
+      : minimumForAlert > numOfUnits && numOfUnits !== 0
       ? ProductStatusType.LOW_STOCK
       : numOfUnits === 0
       ? ProductStatusType.OUT_OF_STOCK
@@ -67,6 +70,7 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
           updateName: 'אוהד',
           numOfUnits: data.numOfUnits,
           minimumForAlert: handleProduct.minimumForAlert,
+          updateTime: Date.now(),
           productStatus: {
             label: productLabel,
             labelValue: validateProductLabelView(productLabel),

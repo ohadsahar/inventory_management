@@ -10,11 +10,12 @@ export interface ProductProps {
   onDelete?: (value: string) => void;
 }
 
-interface ProductHistoryProps {
+export interface ProductHistoryProps {
   id: string;
   name: string;
   numOfUnits: number;
   minimumForAlert: number;
+  updateTime: Date;
 }
 
 interface ProductStatus {

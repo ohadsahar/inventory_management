@@ -12,6 +12,7 @@ export const items = [
         numOfUnits: '7',
         minimumForAlert: '5',
         productStatus: { label: 'stock', labelValue: 'במלאי' },
+        updateTime: Date.now(),
       },
       {
         id: '2',
@@ -19,6 +20,7 @@ export const items = [
         numOfUnits: '3',
         minimumForAlert: '5',
         productStatus: { label: 'lowstock', labelValue: 'אזהרה' },
+        updateTime: Date.now(),
       },
     ],
   },

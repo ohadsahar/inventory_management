@@ -53,6 +53,10 @@ p {
 .p-float-label label {
     right:16px;
 }
+
+.p-input-icon-left > .p-inputtext {
+    padding-left:16px;
+}
 `;
 
 export default GlobalStyle;

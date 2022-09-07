@@ -20,6 +20,7 @@ export const enum Strings {
   LabelAmountBeforeWarningTitle = 'כמות לפני אזהרה',
   LabellStatusTitle = 'סטטוס',
   LabelUpdateName = 'שם המעדכן',
+  LabelDate = 'תאריך עדכון',
 
   //** I18N */
   Stock = 'במלאי',

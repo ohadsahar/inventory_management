@@ -5,8 +5,8 @@ export const ProductTableWrapper = styled.div`
   > .p-datatable .p-datatable-tbody > tr > td {
     text-align: right;
     > .status {
-      width: 75%;
-      padding: 12px 0px;
+      width: 100%;
+      padding: 12px 12px;
       font-weight: 400;
       text-align: center;
       display: block;
@@ -25,9 +25,4 @@ export const ProductTableWrapper = styled.div`
       }
     }
   }
-`;
-
-export const TableRowActionsWrapper = styled.div`
-  display: flex;
-  grid-column-gap: 1vw;
 `;
