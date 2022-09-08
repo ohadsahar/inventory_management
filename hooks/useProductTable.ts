@@ -12,7 +12,6 @@ export const useProductTable = () => {
   const [createProductMode, setCreateProductMode] = useState<boolean>(false);
   const [editProductMode, setEditProductMode] = useState<boolean>(false);
   const [productToEdit, setProductToEdit] = useState<ProductProps>();
-  const toast = useRef<any>(null);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -45,7 +44,6 @@ export const useProductTable = () => {
   return {
     paginatorConfig,
     products,
-    toast,
     expandedRows,
     selectedProducts,
     createProductMode,
