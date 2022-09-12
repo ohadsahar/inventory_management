@@ -57,6 +57,10 @@ p {
 .p-input-icon-left > .p-inputtext {
     padding-left:16px;
 }
+
+.p-toast .p-toast-message .p-toast-message-content .p-toast-message-text {
+    margin-right:2vh;
+}
 `;
 
 export default GlobalStyle;

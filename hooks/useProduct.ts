@@ -1,8 +1,10 @@
+import { AlertType } from '@/config/Enums/AlertType';
 import { ProductStatusType } from '@/config/Enums/ProductStatusType';
 import { Strings } from '@/config/Strings';
 import { ProductProps } from 'models/product.model';
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Alert, createAlert } from 'redux/AlertSlice/AlertSlice';
 import {
   createProduct,
   deleteProduct,
@@ -63,6 +65,12 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
             hideDialog();
           }
         });
+        dispatch(
+          createAlert({
+            message: Strings.MessageCreateProductSuccessfully,
+            type: AlertType.SUCCESS,
+          })
+        );
       } else {
         const newProductHistory = [...handleProduct.productHistory];
         newProductHistory.push({
@@ -82,6 +90,12 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
             reset();
             hideDialog();
           }
+          dispatch(
+            createAlert({
+              message: Strings.MessageEditProductSuccessfully,
+              type: AlertType.SUCCESS,
+            })
+          );
         });
       }
     },

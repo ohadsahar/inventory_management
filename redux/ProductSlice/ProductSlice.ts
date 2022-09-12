@@ -5,6 +5,7 @@ import {
   createProduct,
   deleteProduct,
   getProducts,
+  searchProduct,
   updateProduct,
 } from './AsyncFunctions/handleProduct';
 
@@ -68,6 +69,17 @@ const productSlice = createSlice({
       );
       state.initialProducts[itemToUpdateIndex] = action.payload;
       state.loading = false;
+    });
+    builder.addCase(searchProduct.fulfilled, (state, action: PayloadAction<any>) => {
+      state.loading = false;
+      state.initialProducts = action.payload;
+    });
+    builder.addCase(searchProduct.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(searchProduct.rejected, (state) => {
+      state.loading = false;
+      state.error = 'Error while searching';
     });
   },
 });

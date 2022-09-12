@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import productReducer from './ProductSlice/ProductSlice';
-
+import alertReducer from './AlertSlice/AlertSlice';
 const store = configureStore({
   reducer: {
     product: productReducer,
+    alert: alertReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

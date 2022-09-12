@@ -1,3 +1,4 @@
+import Alerts from '@/core/components/Alerts/Alerts';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import store from 'redux/store';
@@ -9,6 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        <Alerts />
         <Component {...pageProps} />;
       </ThemeProvider>
     </Provider>

@@ -23,3 +23,8 @@ export const updateProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk('api/deleteProduct', async (id: string) => {
   return id;
 });
+
+export const searchProduct = createAsyncThunk('api/searchProduct', async (value: string) => {
+  const filteredData = items.filter((product: any) => product.name.includes(value));
+  return filteredData;
+});

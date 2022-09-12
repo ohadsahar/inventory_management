@@ -1,3 +1,5 @@
+export const alertTimeout = 2000;
+
 export const months = [
   'ינואר',
   'פברואר',

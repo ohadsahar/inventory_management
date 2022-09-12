@@ -1,6 +1,6 @@
 import { ProductProps } from 'models/product.model';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { getProducts } from 'redux/ProductSlice/AsyncFunctions/handleProduct';
+import { getProducts, searchProduct } from 'redux/ProductSlice/AsyncFunctions/handleProduct';
 import { selectAllProducts } from 'redux/ProductSlice/ProductSlice';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 
@@ -22,7 +22,12 @@ export const useProductTable = () => {
     setEditProductMode(true);
   }, []);
 
-  const onSearch = useCallback((value: string) => {}, []);
+  const onSearch = useCallback(
+    (value: string) => {
+      dispatch(searchProduct(value));
+    },
+    [dispatch]
+  );
 
   const importCSV = useCallback((e: any) => {}, []);
 

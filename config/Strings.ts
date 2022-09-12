@@ -36,4 +36,10 @@ export const enum Strings {
   ProductTitlePlaceholder = 'הקלד/י את שם המוצר',
   ProductNumOfUnitsPlaceholder = 'הקלד/י כמות מלאי',
   ProductWarningNumOfUnitsPlaceholder = 'הקלד/י את המינימום לכמות במלאי עבור אזהרה',
+
+  //** Messages **/
+  MessageGlobalSuccess = 'ברכות, הצלחנו!',
+  MessageGlobalError = 'איך נכשלנו...בואו ננסה שוב',
+  MessageCreateProductSuccessfully = 'המשימה נוצרה בהצלחה',
+  MessageEditProductSuccessfully = 'המשימה עודכנה בהצלחה',
 }
