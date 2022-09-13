@@ -54,18 +54,18 @@ const ProductTable = () => {
         value={products}
         selection={selectedProducts}
         expandedRows={expandedRows}
-        onSelectionChange={(e) => setSelectedProducts(e.value)}
-        onRowToggle={(e) => setExpandedRows(e.data)}
-        onRowClick={(e) => setExpandedRows(e.data)}
-        rowExpansionTemplate={(product: ProductProps) => (
-          <ProductTableExpansionTable product={product} handleStatus={handleStatus} />
-        )}
         paginator
         rows={paginatorConfig.numOfRows}
         rowsPerPageOptions={paginatorConfig.rowsPerPageOptions}
         paginatorTemplate={paginatorConfig.paginatorTemplate}
         currentPageReportTemplate="מציג {first} עד {last} מתוך {totalRecords} מוצרי מזון"
         header={<ProductTableHeader productsLength={products?.length} />}
+        onSelectionChange={(e) => setSelectedProducts(e.value)}
+        onRowToggle={(e) => setExpandedRows(e.data)}
+        onRowClick={(e) => setExpandedRows(e.data)}
+        rowExpansionTemplate={(product: ProductProps) => (
+          <ProductTableExpansionTable product={product} handleStatus={handleStatus} />
+        )}
       >
         <Column headerStyle={{ width: '3rem' }} exportable={false}></Column>
         <Column field="id" header={Strings.LabelIDTitle} sortable />

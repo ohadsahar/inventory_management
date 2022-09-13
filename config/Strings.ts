@@ -40,6 +40,15 @@ export const enum Strings {
   //** Messages **/
   MessageGlobalSuccess = 'ברכות, הצלחנו!',
   MessageGlobalError = 'איך נכשלנו...בואו ננסה שוב',
-  MessageCreateProductSuccessfully = 'המשימה נוצרה בהצלחה',
-  MessageEditProductSuccessfully = 'המשימה עודכנה בהצלחה',
+  MessageGlobalInfo = 'בקשתך מתבצעת כעת',
+  MessageCreateProductSuccessfully = 'המוצר נוצר בהצלחה',
+  MessageEditProductSuccessfully = 'המוצר עודכן בהצלחה',
+  MessageDeleteProductSuccessfully = 'המוצר נמחק בהצלחה',
+  MessageGlobalDetailsCreateInfo = 'בקשתך ליצירת מוצר חדש נשלחה כעת',
+  MessageGlobalDetailsEditInfo = 'בקשתך לעריכת מוצר נשלחה כעת',
+  //** Dialog **/
+  CreateProductDialogHeader = 'יצירת מוצר חדש',
+  EditProductDialogHeader = 'עריכת מוצר',
+  DialogSave = 'שמירה',
+  DialogCancel = 'ביטול',
 }

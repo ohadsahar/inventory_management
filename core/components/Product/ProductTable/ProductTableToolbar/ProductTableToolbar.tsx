@@ -3,9 +3,14 @@ import { useProductTable } from '@/hooks/useProductTable';
 import { Button } from 'primereact/button';
 import { FileUpload } from 'primereact/fileupload';
 import { Toolbar } from 'primereact/toolbar';
+import { Dispatch, SetStateAction } from 'react';
 import { TableHeaderActions } from './Styled';
 
-const ProductTableToolbar = ({ setCreateProductMode }: { setCreateProductMode: any }) => {
+const ProductTableToolbar = ({
+  setCreateProductMode,
+}: {
+  setCreateProductMode: Dispatch<SetStateAction<boolean>>;
+}) => {
   const { importCSV } = useProductTable();
   return (
     <Toolbar

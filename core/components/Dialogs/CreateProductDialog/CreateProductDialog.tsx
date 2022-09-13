@@ -3,7 +3,7 @@ import { Strings } from '@/config/Strings';
 import AppInput from '@/shared/AppInput/AppInput';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
-import { useProduct } from '../../../../hooks/useProduct';
+import { useProduct } from '@/hooks/useProduct';
 import { ProductDialogButtonActions, ProductDialogWrapper } from './Styled';
 
 interface CreateProductDialogProps {
@@ -46,15 +46,15 @@ const CreateProductDialog = ({ createProductMode, hideDialog }: CreateProductDia
         />
         <ProductDialogButtonActions>
           <Button
-            label="ביטול"
+            label={Strings.DialogCancel}
             icon="pi pi-times"
-            className="p-button-text p-button-danger   pr-0 m-0"
+            className="p-button-text p-button-danger pr-0 m-0"
             onClick={hideDialog}
           />
           <Button
-            label="שמירה"
+            label={Strings.DialogSave}
             icon="pi pi-check"
-            className="p-button-text p-button-success  pr-1 m-0"
+            className="p-button-text p-button-success pr-1 m-0"
             type="submit"
           />
         </ProductDialogButtonActions>
@@ -66,7 +66,7 @@ const CreateProductDialog = ({ createProductMode, hideDialog }: CreateProductDia
     <Dialog
       visible={createProductMode}
       style={{ width: '450px' }}
-      header="יצירת מוצר חדש"
+      header={Strings.CreateProductDialogHeader}
       modal
       className="p-fluid"
       footer={productDialogFooter}

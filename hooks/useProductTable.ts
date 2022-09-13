@@ -1,12 +1,13 @@
 import { ProductProps } from 'models/product.model';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { getProducts, searchProduct } from 'redux/ProductSlice/AsyncFunctions/handleProduct';
 import { selectAllProducts } from 'redux/ProductSlice/ProductSlice';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 
 export const useProductTable = () => {
   const dispatch = useAppDispatch();
-  const products: ProductProps[] = useAppSelector(selectAllProducts);
+  const products = useAppSelector(selectAllProducts);
+
   const [expandedRows, setExpandedRows] = useState<any>();
   const [selectedProducts, setSelectedProducts] = useState(null);
   const [createProductMode, setCreateProductMode] = useState<boolean>(false);
@@ -29,18 +30,18 @@ export const useProductTable = () => {
     [dispatch]
   );
 
-  const importCSV = useCallback((e: any) => {}, []);
-
   const hideDialog = useCallback(() => {
     setCreateProductMode(false);
     setEditProductMode(false);
     setProductToEdit(undefined);
   }, []);
 
+  const importCSV = useCallback((e: any) => {}, []);
+
   const paginatorConfig = useMemo(() => {
     return {
-      numOfRows: 5,
-      rowsPerPageOptions: [5, 10, 25, 50, 100],
+      numOfRows: 10,
+      rowsPerPageOptions: [10, 25, 50, 100],
       paginatorTemplate:
         'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown',
     };

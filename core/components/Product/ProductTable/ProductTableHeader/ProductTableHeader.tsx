@@ -17,6 +17,7 @@ const ProductTableHeader = ({ productsLength }: { productsLength: number }) => {
       <span className="p-input-icon-left">
         <i className="pi pi-search" />
         <InputText
+          style={{ width: '100%' }}
           type="search"
           onInput={(e: React.ChangeEvent<HTMLInputElement>) => onSearch(e.currentTarget.value)}
           placeholder={Strings.ProductTableSearch}

@@ -1,4 +1,4 @@
-export const alertTimeout = 2000;
+export const alertTimeout = 1500;
 
 export const months = [
   'ינואר',

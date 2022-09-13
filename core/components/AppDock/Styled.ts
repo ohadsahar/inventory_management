@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-export const AppDockSection = styled.div``;
-
 export const AppDockWrapper = styled.div`
   display: flex;
   flex-direction: column;

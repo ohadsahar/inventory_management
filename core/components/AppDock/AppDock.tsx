@@ -1,14 +1,14 @@
 import Layout from '@/core/components/Layout/Layout';
 import AppNavbar from '@/core/components/Navbar/AppNavbar';
 import { Dock } from 'primereact/dock';
-import { useDock } from '../../../hooks/useDock';
+import { useDock } from '@/hooks/useDock';
 import { Tooltip } from 'primereact/tooltip';
+import { AppDockWrapper } from './Styled';
 
-import { AppDockSection, AppDockWrapper } from './Styled';
 const AppDock = () => {
   const { currentLayout, dockItems } = useDock();
   return (
-    <AppDockSection>
+    <>
       <AppDockWrapper>
         <AppNavbar />
         <Layout currentLayout={currentLayout} />
@@ -21,7 +21,7 @@ const AppDock = () => {
         showDelay={150}
       />
       <Dock model={dockItems} position="left" />
-    </AppDockSection>
+    </>
   );
 };
 

@@ -1,10 +1,10 @@
 import { AlertType } from '@/config/Enums/AlertType';
 import { ProductStatusType } from '@/config/Enums/ProductStatusType';
 import { Strings } from '@/config/Strings';
-import { ProductProps } from 'models/product.model';
+import { ProductHistoryProps, ProductProps } from 'models/product.model';
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Alert, createAlert } from 'redux/AlertSlice/AlertSlice';
+import { createAlert } from 'redux/AlertSlice/AlertSlice';
 import {
   createProduct,
   deleteProduct,
@@ -51,6 +51,79 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
     }
   };
 
+  const handleCreateProduct = useCallback(
+    (handleProduct: ProductProps) => {
+      dispatch(
+        createAlert({
+          message: Strings.MessageGlobalDetailsCreateInfo,
+          type: AlertType.INFO,
+        })
+      );
+      dispatch(createProduct(handleProduct)).then(() => {
+        dispatch(
+          createAlert({
+            message: Strings.MessageCreateProductSuccessfully,
+            type: AlertType.SUCCESS,
+          })
+        );
+      });
+    },
+    [dispatch]
+  );
+
+  const handleEditProduct = useCallback(
+    (handleProduct: ProductProps, data: ProductProps, productLabel: ProductStatusType) => {
+      const newProductHistory: ProductHistoryProps[] = [...(handleProduct.productHistory ?? [])];
+      newProductHistory.push({
+        id: Math.random().toString(),
+        updateName: 'אוהד',
+        numOfUnits: data.numOfUnits,
+        minimumForAlert: handleProduct.minimumForAlert,
+        updateTime: new Date(),
+        productStatus: {
+          label: productLabel,
+          labelValue: validateProductLabelView(productLabel),
+        },
+      });
+      handleProduct = { ...handleProduct, productHistory: newProductHistory };
+      dispatch(
+        createAlert({
+          message: Strings.MessageGlobalDetailsEditInfo,
+          type: AlertType.INFO,
+        })
+      );
+      dispatch(updateProduct(handleProduct)).then(() => {
+        dispatch(
+          createAlert({
+            message: Strings.MessageEditProductSuccessfully,
+            type: AlertType.SUCCESS,
+          })
+        );
+      });
+    },
+    [dispatch]
+  );
+
+  const onDeleteProduct = useCallback(
+    (product: ProductProps) => {
+      dispatch(
+        createAlert({
+          message: `בקשתך למחיקת ${product.name} נשלחה לביצוע`,
+          type: AlertType.INFO,
+        })
+      );
+      dispatch(deleteProduct(product.id)).then(() => {
+        dispatch(
+          createAlert({
+            message: Strings.MessageDeleteProductSuccessfully,
+            type: AlertType.SUCCESS,
+          })
+        );
+      });
+    },
+    [dispatch]
+  );
+
   const onSubmit = useCallback(
     (data: any) => {
       const productLabel = validateProductStatus(data.minimumForAlert, data.numOfUnits);
@@ -59,54 +132,16 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
         productStatus: { label: productLabel, labelValue: validateProductLabelView(productLabel) },
       };
       if (!isEditMode) {
-        dispatch(createProduct(handleProduct)).then(() => {
-          if (hideDialog) {
-            reset();
-            hideDialog();
-          }
-        });
-        dispatch(
-          createAlert({
-            message: Strings.MessageCreateProductSuccessfully,
-            type: AlertType.SUCCESS,
-          })
-        );
+        handleCreateProduct(handleProduct);
       } else {
-        const newProductHistory = [...handleProduct.productHistory];
-        newProductHistory.push({
-          id: Math.random().toString(),
-          updateName: 'אוהד',
-          numOfUnits: data.numOfUnits,
-          minimumForAlert: handleProduct.minimumForAlert,
-          updateTime: Date.now(),
-          productStatus: {
-            label: productLabel,
-            labelValue: validateProductLabelView(productLabel),
-          },
-        });
-        handleProduct = { ...handleProduct, productHistory: newProductHistory };
-        dispatch(updateProduct(handleProduct)).then(() => {
-          if (hideDialog) {
-            reset();
-            hideDialog();
-          }
-          dispatch(
-            createAlert({
-              message: Strings.MessageEditProductSuccessfully,
-              type: AlertType.SUCCESS,
-            })
-          );
-        });
+        handleEditProduct(handleProduct, data, productLabel);
+      }
+      if (hideDialog) {
+        reset();
+        hideDialog();
       }
     },
-    [isEditMode, dispatch, hideDialog, reset]
-  );
-
-  const onDeleteProduct = useCallback(
-    (product: ProductProps) => {
-      dispatch(deleteProduct(product.id)).then(() => {});
-    },
-    [dispatch]
+    [isEditMode, hideDialog, handleCreateProduct, handleEditProduct, reset]
   );
 
   return { onSubmit, handleSubmit, onDeleteProduct, control, errors };

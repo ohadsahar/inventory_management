@@ -12,10 +12,11 @@ export interface ProductProps {
 
 export interface ProductHistoryProps {
   id: string;
-  name: string;
+  updateName: string;
   numOfUnits: number;
   minimumForAlert: number;
   updateTime: Date;
+  productStatus: ProductStatus;
 }
 
 interface ProductStatus {

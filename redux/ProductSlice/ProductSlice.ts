@@ -1,6 +1,9 @@
+import { AlertType } from '@/config/Enums/AlertType';
+import { Strings } from '@/config/Strings';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductProps } from 'models/product.model';
-import { RootState } from '../store';
+import { createAlert } from 'redux/AlertSlice/AlertSlice';
+import { RootState, useAppDispatch } from '../store';
 import {
   createProduct,
   deleteProduct,
@@ -38,7 +41,7 @@ const productSlice = createSlice({
       state.initialProducts = [];
       state.error = 'Error with loading items';
     });
-    builder.addCase(createProduct.fulfilled, (state, action: PayloadAction<ProductProps>) => {
+    builder.addCase(createProduct.fulfilled, (state, action: PayloadAction<any>) => {
       state.loading = false;
       state.initialProducts = [...state.initialProducts, action.payload];
     });
@@ -49,12 +52,16 @@ const productSlice = createSlice({
       state.loading = false;
       state.error = 'Error with adding current item';
     });
-    builder.addCase(deleteProduct.fulfilled, (state, action: PayloadAction<string>) => {
-      const updatedItems = [...state.initialProducts];
-      const index = updatedItems.findIndex((item: ProductProps) => item.id === action.payload);
-      updatedItems.splice(index, 1);
+    builder.addCase(deleteProduct.fulfilled, (state, action: PayloadAction<any>) => {
+      const updatedProducts = [...state.initialProducts];
+      const index = updatedProducts.findIndex(
+        (product: ProductProps) => product.id === action.payload
+      );
+      if (index >= 0) {
+        updatedProducts.splice(index, 1);
+      }
+      state.initialProducts = updatedProducts;
       state.loading = false;
-      state.initialProducts = updatedItems;
     });
     builder.addCase(deleteProduct.pending, (state) => {
       state.loading = true;
@@ -63,7 +70,7 @@ const productSlice = createSlice({
       state.loading = false;
       state.error = 'Error while trying to delete item';
     });
-    builder.addCase(updateProduct.fulfilled, (state, action: PayloadAction<ProductProps>) => {
+    builder.addCase(updateProduct.fulfilled, (state, action: PayloadAction<any>) => {
       const itemToUpdateIndex = state.initialProducts.findIndex(
         (item: ProductProps) => item.id === action.payload.id
       );

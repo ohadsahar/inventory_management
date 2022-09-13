@@ -23,14 +23,16 @@ const alertSlice = createSlice({
   reducers: {
     createAlert(state, action: PayloadAction<Alert>) {
       const alert: Alert = {
-        id: Date.now().toString(),
+        id: action.payload.id ?? Date.now().toString(),
         message: action.payload.message,
         type: action.payload.type,
       };
       state.initialAlerts.push(alert);
     },
     removeAlert(state, action: PayloadAction<Alert>) {
-      const index = state.initialAlerts.findIndex((alert: Alert) => alert.id === action.payload.id);
+      const index = state.initialAlerts.findIndex(
+        (alert: Alert) => alert?.id === action.payload.id
+      );
       const updatedAlerts = [...state.initialAlerts];
       updatedAlerts.splice(index, 1);
       state.initialAlerts = updatedAlerts;

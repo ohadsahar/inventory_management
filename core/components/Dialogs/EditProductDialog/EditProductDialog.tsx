@@ -4,7 +4,7 @@ import AppInput from '@/shared/AppInput/AppInput';
 import { ProductProps } from 'models/product.model';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
-import { useProduct } from '../../../../hooks/useProduct';
+import { useProduct } from '@/hooks/useProduct';
 import { ProductDialogButtonActions, ProductDialogWrapper } from '../CreateProductDialog/Styled';
 
 interface EditProductDialogProps {
@@ -48,13 +48,13 @@ const EditProductDialog = ({ product, editProductMode, hideDialog }: EditProduct
         />
         <ProductDialogButtonActions>
           <Button
-            label="ביטול"
+            label={Strings.DialogCancel}
             icon="pi pi-times"
             className="p-button-text p-button-danger   pr-0 m-0"
             onClick={hideDialog}
           />
           <Button
-            label="שמירה"
+            label={Strings.DialogSave}
             icon="pi pi-check"
             className="p-button-text p-button-success  pr-1 m-0"
             type="submit"
@@ -68,7 +68,7 @@ const EditProductDialog = ({ product, editProductMode, hideDialog }: EditProduct
     <Dialog
       visible={editProductMode}
       style={{ width: '450px' }}
-      header="עריכת מוצר"
+      header={Strings.EditProductDialogHeader}
       modal
       className="p-fluid"
       footer={productDialogFooter}

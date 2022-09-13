@@ -20,10 +20,14 @@ export const useAlerts = () => {
             detail:
               alerts[index].type === AlertType.SUCCESS
                 ? Strings.MessageGlobalSuccess
-                : Strings.MessageGlobalError,
-            life: alertTimeout,
+                : alerts[index].type === AlertType.ERROR
+                ? Strings.MessageGlobalError
+                : Strings.MessageGlobalInfo,
+            life: 1500,
           });
-          dispatch(removeAlert(alerts[index]));
+          {
+            dispatch(removeAlert(alerts[index]));
+          }
         }
       }
     }
