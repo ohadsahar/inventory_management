@@ -14,14 +14,7 @@ interface DashboardCardProps {
   icon: any;
 }
 
-const DashboardCard = ({
-  amount,
-  title,
-  icon,
-  isIncrease,
-  color,
-  percentage,
-}: DashboardCardProps) => {
+const DashboardCard = ({ amount, title, icon, isIncrease, color, percentage }: DashboardCardProps) => {
   return (
     <DashboardCardWrapper>
       <PairWrapper>

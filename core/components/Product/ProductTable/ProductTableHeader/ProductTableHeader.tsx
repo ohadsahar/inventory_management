@@ -10,10 +10,7 @@ const ProductTableHeader = ({ productsLength }: { productsLength: number }) => {
   const { onSearch } = useProductTable();
   return (
     <TableHeader>
-      <Typography
-        type={TextType.REGULAR}
-        text={`${Strings.ProductTableTotalRecords} ${productsLength}`}
-      />
+      <Typography type={TextType.REGULAR} text={`${Strings.ProductTableTotalRecords} ${productsLength}`} />
       <span className="p-input-icon-left">
         <i className="pi pi-search" />
         <InputText

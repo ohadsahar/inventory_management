@@ -54,9 +54,7 @@ const productSlice = createSlice({
     });
     builder.addCase(deleteProduct.fulfilled, (state, action: PayloadAction<any>) => {
       const updatedProducts = [...state.initialProducts];
-      const index = updatedProducts.findIndex(
-        (product: ProductProps) => product.id === action.payload
-      );
+      const index = updatedProducts.findIndex((product: ProductProps) => product.id === action.payload);
       if (index >= 0) {
         updatedProducts.splice(index, 1);
       }

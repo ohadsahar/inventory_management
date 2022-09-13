@@ -5,11 +5,7 @@ import { ProductHistoryProps, ProductProps } from 'models/product.model';
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { createAlert } from 'redux/AlertSlice/AlertSlice';
-import {
-  createProduct,
-  deleteProduct,
-  updateProduct,
-} from 'redux/ProductSlice/AsyncFunctions/handleProduct';
+import { createProduct, deleteProduct, updateProduct } from 'redux/ProductSlice/AsyncFunctions/handleProduct';
 import { useAppDispatch } from 'redux/store';
 
 export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {

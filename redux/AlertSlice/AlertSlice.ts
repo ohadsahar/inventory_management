@@ -30,9 +30,7 @@ const alertSlice = createSlice({
       state.initialAlerts.push(alert);
     },
     removeAlert(state, action: PayloadAction<Alert>) {
-      const index = state.initialAlerts.findIndex(
-        (alert: Alert) => alert?.id === action.payload.id
-      );
+      const index = state.initialAlerts.findIndex((alert: Alert) => alert?.id === action.payload.id);
       const updatedAlerts = [...state.initialAlerts];
       updatedAlerts.splice(index, 1);
       state.initialAlerts = updatedAlerts;
