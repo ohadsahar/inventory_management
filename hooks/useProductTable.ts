@@ -18,6 +18,15 @@ export const useProductTable = () => {
     dispatch(getProducts());
   }, [dispatch]);
 
+  const paginatorConfig = useMemo(() => {
+    return {
+      numOfRows: 10,
+      rowsPerPageOptions: [10, 25, 50, 100],
+      paginatorTemplate:
+        'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown',
+    };
+  }, []);
+
   const onEditProduct = useCallback((product: ProductProps) => {
     setProductToEdit(product);
     setEditProductMode(true);
@@ -36,15 +45,8 @@ export const useProductTable = () => {
     setProductToEdit(undefined);
   }, []);
 
-  const importCSV = useCallback((e: any) => {}, []);
-
-  const paginatorConfig = useMemo(() => {
-    return {
-      numOfRows: 10,
-      rowsPerPageOptions: [10, 25, 50, 100],
-      paginatorTemplate:
-        'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown',
-    };
+  const importCSV = useCallback((e: any) => {
+    console.log('Should Import CSV');
   }, []);
 
   return {

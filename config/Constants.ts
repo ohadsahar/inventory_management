@@ -1,5 +1,5 @@
 export const alertTimeout = 1500;
-
+export const infoAlertTime = 1000;
 export const months = [
   'ינואר',
   'פברואר',
@@ -23,7 +23,6 @@ export const dashboardCardsColor = {
   electricalItemColor: '#FFA987',
   documentColor: '#004E89',
 };
-
 //Should delete on server ready
 export const dynamicMockDashboard = {
   itemsCount: 10,

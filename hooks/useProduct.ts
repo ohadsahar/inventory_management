@@ -1,10 +1,8 @@
-import { AlertType } from '@/config/Enums/AlertType';
 import { ProductStatusType } from '@/config/Enums/ProductStatusType';
 import { Strings } from '@/config/Strings';
 import { ProductHistoryProps, ProductProps } from 'models/product.model';
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { createAlert } from 'redux/AlertSlice/AlertSlice';
 import { createProduct, deleteProduct, updateProduct } from 'redux/ProductSlice/AsyncFunctions/handleProduct';
 import { useAppDispatch } from 'redux/store';
 
@@ -49,20 +47,7 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
 
   const handleCreateProduct = useCallback(
     (handleProduct: ProductProps) => {
-      dispatch(
-        createAlert({
-          message: Strings.MessageGlobalDetailsCreateInfo,
-          type: AlertType.INFO,
-        })
-      );
-      dispatch(createProduct(handleProduct)).then(() => {
-        dispatch(
-          createAlert({
-            message: Strings.MessageCreateProductSuccessfully,
-            type: AlertType.SUCCESS,
-          })
-        );
-      });
+      dispatch(createProduct(handleProduct));
     },
     [dispatch]
   );
@@ -82,40 +67,14 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
         },
       });
       handleProduct = { ...handleProduct, productHistory: newProductHistory };
-      dispatch(
-        createAlert({
-          message: Strings.MessageGlobalDetailsEditInfo,
-          type: AlertType.INFO,
-        })
-      );
-      dispatch(updateProduct(handleProduct)).then(() => {
-        dispatch(
-          createAlert({
-            message: Strings.MessageEditProductSuccessfully,
-            type: AlertType.SUCCESS,
-          })
-        );
-      });
+      dispatch(updateProduct(handleProduct));
     },
     [dispatch]
   );
 
   const onDeleteProduct = useCallback(
     (product: ProductProps) => {
-      dispatch(
-        createAlert({
-          message: `בקשתך למחיקת ${product.name} נשלחה לביצוע`,
-          type: AlertType.INFO,
-        })
-      );
-      dispatch(deleteProduct(product.id)).then(() => {
-        dispatch(
-          createAlert({
-            message: Strings.MessageDeleteProductSuccessfully,
-            type: AlertType.SUCCESS,
-          })
-        );
-      });
+      dispatch(deleteProduct(product));
     },
     [dispatch]
   );

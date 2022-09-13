@@ -1,4 +1,4 @@
-import { alertTimeout } from '@/config/Constants';
+import { alertTimeout, infoAlertTime } from '@/config/Constants';
 import { AlertType } from '@/config/Enums/AlertType';
 import { Strings } from '@/config/Strings';
 import { useEffect, useRef } from 'react';
@@ -23,7 +23,7 @@ export const useAlerts = () => {
                 : alerts[index].type === AlertType.ERROR
                 ? Strings.MessageGlobalError
                 : Strings.MessageGlobalInfo,
-            life: 1500,
+            life: alerts[index].type === AlertType.INFO ? infoAlertTime : alertTimeout,
           });
           {
             dispatch(removeAlert(alerts[index]));

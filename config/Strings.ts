@@ -1,6 +1,5 @@
 export const enum Strings {
-  SearchBarPlaceholder = 'חיפוש...(ניתן לחפש לפי שם המוצר, סוג המוצר)',
-  UnitBeforeWarning = 'יח׳ לפני אזהרה:',
+  //** Dashboard */
   DashboardCardTitleItems = 'מוצרי מזון',
   DashboardCardTitleTotalProduct = 'סה״כ מלאי',
   DashboardCardTitleWeeklyUpdates = 'כמות עדכונים שבועי',
@@ -8,12 +7,14 @@ export const enum Strings {
   DashboardCardPercentageUp = 'עלייה של',
   DashboardCardPercentageDown = 'ירידה של',
   DashboardCardDocuments = 'קבלות',
+
+  //** Product Table **/
   ProductTableNewItem = 'מוצר חדש',
-  ProductTableDeleteSelectedItems = 'מחיקת מוצרי מזון מסומנים',
   ProductTableImportExcelFile = 'יבא קובץ אקסל',
   ProductTableTotalRecords = 'כמות מוצרי מזון:',
   ProductTableSearch = 'חיפוש...',
 
+  //** Labels **/
   LabelIDTitle = 'מס׳ זיהוי',
   LabelProductTitle = 'שם המוצר',
   LabellAmountStocktitle = 'כמות במלאי',
@@ -46,6 +47,9 @@ export const enum Strings {
   MessageDeleteProductSuccessfully = 'המוצר נמחק בהצלחה',
   MessageGlobalDetailsCreateInfo = 'בקשתך ליצירת מוצר חדש נשלחה כעת',
   MessageGlobalDetailsEditInfo = 'בקשתך לעריכת מוצר נשלחה כעת',
+  MessageGlobalLoadingProducts = 'אנו טוענים עבורך את המוצרים שלך',
+  MessageGlobalLoadingDoneProducts = 'המוצרים נטענו בהצלחה',
+
   //** Dialog **/
   CreateProductDialogHeader = 'יצירת מוצר חדש',
   EditProductDialogHeader = 'עריכת מוצר',
