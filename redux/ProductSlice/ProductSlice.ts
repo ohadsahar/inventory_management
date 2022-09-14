@@ -1,9 +1,6 @@
-import { AlertType } from '@/config/Enums/AlertType';
-import { Strings } from '@/config/Strings';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductProps } from 'models/product.model';
-import { createAlert } from 'redux/AlertSlice/AlertSlice';
-import { RootState, useAppDispatch } from '../store';
+import { RootState } from '../store';
 import {
   createProduct,
   deleteProduct,

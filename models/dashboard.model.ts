@@ -8,6 +8,5 @@ export interface DashboardModel {
   totalProductCountPercentage: number;
   updatesWeeklyCountPercentage: number;
   warningCountPercentage: number;
-  electricalItemsCount: number;
   documentsCount: number;
 }

@@ -1,12 +1,11 @@
 import { Strings } from '@/config/Strings';
 import DashboardCard from '@/core/components/Dashboard/DashboardCards/DashboardCard/DashboardCard';
+import { useDashboard } from '@/hooks/useDashboard';
 import ArticleIcon from '@mui/icons-material/Article';
 import CategoryIcon from '@mui/icons-material/Category';
-import ComputerIcon from '@mui/icons-material/Computer';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
-import { useDashboard } from '../../../../hooks/useDashboard';
 import { DashboardCardsWrapper } from './Styled';
 
 const DashboardCards = () => {

@@ -1,34 +1,86 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ProductProps } from 'models/product.model';
 import { items } from 'mock';
+import { createAlert } from 'redux/AlertSlice/AlertSlice';
+import { AlertType } from '@/config/Enums/AlertType';
+import { Strings } from '@/config/Strings';
 
-export const getProducts = createAsyncThunk('api/getProducts', async () => {
+export const getProducts = createAsyncThunk('api/getProducts', async (_, thunkAPI) => {
+  thunkAPI.dispatch(
+    createAlert({
+      message: Strings.MessageGlobalLoadingProducts,
+      type: AlertType.INFO,
+    })
+  );
+  await new Promise((resolve) => setTimeout(resolve, 500));
+  thunkAPI.dispatch(
+    createAlert({
+      message: Strings.MessageGlobalLoadingDoneProducts,
+      type: AlertType.SUCCESS,
+    })
+  );
   return items;
 });
 
-export const createProduct = createAsyncThunk('api/createProduct', async (product: ProductProps) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      return resolve(product as any);
-    }, 1000);
-  });
-});
+export const createProduct = createAsyncThunk(
+  'api/createProduct',
+  async (product: ProductProps, thunkAPI) => {
+    thunkAPI.dispatch(
+      createAlert({
+        message: Strings.MessageGlobalDetailsCreateInfo,
+        type: AlertType.INFO,
+      })
+    );
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    thunkAPI.dispatch(
+      createAlert({
+        message: Strings.MessageCreateProductSuccessfully,
+        type: AlertType.SUCCESS,
+      })
+    );
+    return product;
+  }
+);
 
-export const updateProduct = createAsyncThunk('api/updateProduct', async (product: ProductProps) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      return resolve(product as any);
-    }, 1000);
-  });
-});
+export const updateProduct = createAsyncThunk(
+  'api/updateProduct',
+  async (product: ProductProps, thunkAPI) => {
+    thunkAPI.dispatch(
+      createAlert({
+        message: Strings.MessageGlobalDetailsCreateInfo,
+        type: AlertType.INFO,
+      })
+    );
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    thunkAPI.dispatch(
+      createAlert({
+        message: Strings.MessageEditProductSuccessfully,
+        type: AlertType.SUCCESS,
+      })
+    );
+    return product;
+  }
+);
 
-export const deleteProduct = createAsyncThunk('api/deleteProduct', async (id: string) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      return resolve(id as any);
-    }, 1000);
-  });
-});
+export const deleteProduct = createAsyncThunk(
+  'api/deleteProduct',
+  async (product: ProductProps, thunkAPI) => {
+    thunkAPI.dispatch(
+      createAlert({
+        message: `בקשתך למחיקת ${product.name} נשלחה לביצוע`,
+        type: AlertType.INFO,
+      })
+    );
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    thunkAPI.dispatch(
+      createAlert({
+        message: Strings.MessageDeleteProductSuccessfully,
+        type: AlertType.SUCCESS,
+      })
+    );
+    return product.id;
+  }
+);
 
 export const searchProduct = createAsyncThunk('api/searchProduct', async (value: string) => {
   const filteredData = items.filter((product: any) => product.name.includes(value));
