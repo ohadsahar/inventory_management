@@ -13,7 +13,7 @@ export const useCharts = () => {
     datasets: [
       {
         type: 'bar',
-        label: 'מלאי תקין',
+        label: Strings.ChartALabel,
         backgroundColor: '#66BB6A',
         data: yearlyWarnings,
         borderColor: 'white',
@@ -21,7 +21,7 @@ export const useCharts = () => {
       },
       {
         type: 'bar',
-        label: 'אזהרות',
+        label: Strings.ChartBLabel,
         backgroundColor: '#FFA726',
         data: yearlyProducts,
       },

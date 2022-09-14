@@ -10,23 +10,27 @@ export const useAlerts = () => {
   const dispatch = useAppDispatch();
   const toast = useRef<any>(null);
 
+  const handleErrorTypeMessage = (type: AlertType) => {
+    return type === AlertType.SUCCESS
+      ? Strings.MessageGlobalSuccess
+      : type === AlertType.ERROR
+      ? Strings.MessageGlobalError
+      : Strings.MessageGlobalInfo;
+  };
+
   useEffect(() => {
     if (alerts) {
       for (let index = 0; index < alerts.length; index++) {
+        const currentAlert = alerts[index];
         if (toast.current) {
           toast.current.show({
-            severity: alerts[index].type,
-            summary: alerts[index].message,
-            detail:
-              alerts[index].type === AlertType.SUCCESS
-                ? Strings.MessageGlobalSuccess
-                : alerts[index].type === AlertType.ERROR
-                ? Strings.MessageGlobalError
-                : Strings.MessageGlobalInfo,
-            life: alerts[index].type === AlertType.INFO ? infoAlertTime : alertTimeout,
+            severity: currentAlert.type,
+            summary: currentAlert.message,
+            detail: handleErrorTypeMessage(currentAlert.type),
+            life: currentAlert.type === AlertType.INFO ? infoAlertTime : alertTimeout,
           });
           {
-            dispatch(removeAlert(alerts[index]));
+            dispatch(removeAlert(currentAlert));
           }
         }
       }

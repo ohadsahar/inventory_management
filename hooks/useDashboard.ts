@@ -7,7 +7,6 @@ export const useDashboard = () => {
     totalProductCount: 650,
     updatesWeeklyCount: 50,
     warningCount: 10,
-    electricalItemsCount: 4,
     documentsCount: 10,
     isIncrease: true,
     itemsCountPercentage: 0.75,

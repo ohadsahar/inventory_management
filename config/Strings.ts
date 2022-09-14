@@ -22,6 +22,8 @@ export const enum Strings {
   LabellStatusTitle = 'סטטוס',
   LabelUpdateName = 'שם המעדכן',
   LabelDate = 'תאריך עדכון',
+  ChartALabel = 'מלאי תקין',
+  ChartBLabel = 'אזהרות',
 
   //** I18N */
   Stock = 'במלאי',
