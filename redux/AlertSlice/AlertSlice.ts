@@ -1,5 +1,5 @@
-import { AlertType } from '@/config/Enums/AlertType';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AlertType } from '@/config/Enums/AlertType';
 import { RootState } from 'redux/store';
 
 export interface InitialState {
@@ -30,7 +30,9 @@ const alertSlice = createSlice({
       state.initialAlerts.push(alert);
     },
     removeAlert(state, action: PayloadAction<Alert>) {
-      const index = state.initialAlerts.findIndex((alert: Alert) => alert?.id === action.payload.id);
+      const index = state.initialAlerts.findIndex(
+        (alert: Alert) => alert?.id === action.payload.id,
+      );
       const updatedAlerts = [...state.initialAlerts];
       updatedAlerts.splice(index, 1);
       state.initialAlerts = updatedAlerts;

@@ -6,3 +6,4 @@ npm run prettier-format
 npm run prettier-lint
 git add .
 
+npx lint-staged

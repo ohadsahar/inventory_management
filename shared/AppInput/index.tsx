@@ -1,6 +1,6 @@
+import React from 'react';
 import { InputText } from 'primereact/inputtext';
 import { classNames } from 'primereact/utils';
-import React from 'react';
 import { Controller } from 'react-hook-form';
 
 interface AppInputProps {
@@ -14,7 +14,7 @@ interface AppInputProps {
   errors: any;
 }
 
-const AppInput = ({
+export const AppInput = ({
   fieldName,
   requiredMsg,
   placeholder,
@@ -50,5 +50,3 @@ const AppInput = ({
     </div>
   );
 };
-
-export default AppInput;

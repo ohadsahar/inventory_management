@@ -1,6 +1,6 @@
-import { TextType } from '@/config/Enums/TextType';
 import React from 'react';
 import { HintText, InputLabel, RegularText, TitleText } from './Styled';
+import { TextType } from '@/config/Enums/TextType';
 
 interface TypographyProps {
   text: string;
@@ -9,9 +9,9 @@ interface TypographyProps {
   color?: string;
 }
 
-const Typography = ({ text, type, color, textAlign }: TypographyProps) => {
+export const Typography = ({ text, type, color, textAlign }: TypographyProps) => {
   return (
-    <>
+    <React.Fragment>
       {type === TextType.TITLE && <TitleText>{text}</TitleText>}
       {type === TextType.REGULAR && (
         <RegularText textAlign={textAlign} color={color}>
@@ -24,8 +24,6 @@ const Typography = ({ text, type, color, textAlign }: TypographyProps) => {
           {text}
         </HintText>
       )}
-    </>
+    </React.Fragment>
   );
 };
-
-export default Typography;

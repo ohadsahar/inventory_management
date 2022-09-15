@@ -1,9 +1,13 @@
+import { useCallback, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { ProductStatusType } from '@/config/Enums/ProductStatusType';
 import { Strings } from '@/config/Strings';
 import { ProductHistoryProps, ProductProps } from 'models/product.model';
-import { useCallback, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { createProduct, deleteProduct, updateProduct } from 'redux/ProductSlice/AsyncFunctions/handleProduct';
+import {
+  createProduct,
+  deleteProduct,
+  updateProduct,
+} from 'redux/ProductSlice/AsyncFunctions/handleProduct';
 import { useAppDispatch } from 'redux/store';
 
 export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
@@ -49,7 +53,7 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
     (handleProduct: ProductProps) => {
       dispatch(createProduct(handleProduct));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const handleEditProduct = useCallback(
@@ -69,20 +73,20 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
       handleProduct = { ...handleProduct, productHistory: newProductHistory };
       dispatch(updateProduct(handleProduct));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const onDeleteProduct = useCallback(
     (product: ProductProps) => {
       dispatch(deleteProduct(product));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const onSubmit = useCallback(
     (data: any) => {
       const productLabel = validateProductStatus(data.minimumForAlert, data.numOfUnits);
-      let handleProduct = {
+      const handleProduct = {
         ...data,
         productStatus: { label: productLabel, labelValue: validateProductLabelView(productLabel) },
       };
@@ -96,7 +100,7 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
         hideDialog();
       }
     },
-    [isEditMode, hideDialog, handleCreateProduct, handleEditProduct, reset]
+    [isEditMode, hideDialog, handleCreateProduct, handleEditProduct, reset],
   );
 
   return { onSubmit, handleSubmit, onDeleteProduct, control, errors };

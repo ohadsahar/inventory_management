@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import productReducer from './ProductSlice/ProductSlice';
 import alertReducer from './AlertSlice/AlertSlice';
+import productReducer from './ProductSlice/ProductSlice';
 const store = configureStore({
   reducer: {
     product: productReducer,

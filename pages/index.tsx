@@ -1,8 +1,6 @@
-import AppDock from '@/core/components/AppDock/AppDock';
 import type { NextPage } from 'next';
+import { AppDock } from '@/core/components/AppDock';
 
-const Home: NextPage = () => {
-  return <AppDock />;
-};
+const Home: NextPage = () => <AppDock />;
 
 export default Home;

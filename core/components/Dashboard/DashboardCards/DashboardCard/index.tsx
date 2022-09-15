@@ -1,9 +1,9 @@
-import { TextType } from '@/config/Enums/TextType';
-import { Strings } from '@/config/Strings';
-import Typography from '@/shared/Typography/Typography';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { DashboardCardTitle, DashboardCardWrapper, IconWrapper, PairWrapper } from './Styled';
+import { TextType } from '@/config/Enums/TextType';
+import { Strings } from '@/config/Strings';
+import { Typography } from '@/shared/Typography';
 
 interface DashboardCardProps {
   amount: number;
@@ -14,7 +14,14 @@ interface DashboardCardProps {
   icon: any;
 }
 
-const DashboardCard = ({ amount, title, icon, isIncrease, color, percentage }: DashboardCardProps) => {
+export const DashboardCard = ({
+  amount,
+  title,
+  icon,
+  isIncrease,
+  color,
+  percentage,
+}: DashboardCardProps) => {
   return (
     <DashboardCardWrapper>
       <PairWrapper>
@@ -38,5 +45,3 @@ const DashboardCard = ({ amount, title, icon, isIncrease, color, percentage }: D
     </DashboardCardWrapper>
   );
 };
-
-export default DashboardCard;
