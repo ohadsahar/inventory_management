@@ -1,15 +1,26 @@
-import { FieldType } from '@/config/Enums/FieldType';
-import { Strings } from '@/config/Strings';
-import AppInput from '@/shared/AppInput/AppInput';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
+import styled from 'styled-components';
+import { FieldType } from '@/config/Enums/FieldType';
+import { Strings } from '@/config/Strings';
 import { useProduct } from '@/hooks/useProduct';
-import { ProductDialogButtonActions, ProductDialogWrapper } from './Styled';
+import { AppInput } from '@/shared/AppInput';
+
+const ProductDialogWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 3vh;
+`;
+
+const ProductDialogButtonActions = styled.div`
+  padding-top: 1vh;
+`;
 
 interface CreateProductDialogProps {
   createProductMode: boolean;
   hideDialog: () => void;
 }
+
 const CreateProductDialog = ({ createProductMode, hideDialog }: CreateProductDialogProps) => {
   const { handleSubmit, onSubmit, control, errors } = useProduct(hideDialog);
 

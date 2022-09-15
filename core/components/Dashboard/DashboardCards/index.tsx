@@ -1,14 +1,33 @@
-import { Strings } from '@/config/Strings';
-import DashboardCard from '@/core/components/Dashboard/DashboardCards/DashboardCard/DashboardCard';
-import { useDashboard } from '@/hooks/useDashboard';
 import ArticleIcon from '@mui/icons-material/Article';
 import CategoryIcon from '@mui/icons-material/Category';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
-import { DashboardCardsWrapper } from './Styled';
+import styled from 'styled-components';
+import { Strings } from '@/config/Strings';
+import { DashboardCard } from '@/core/components/Dashboard/DashboardCards/DashboardCard';
+import { useDashboard } from '@/hooks/useDashboard';
 
-const DashboardCards = () => {
+const DashboardCardsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-row-gap: 2vh;
+  grid-column-gap: 1vw;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: auto;
+  @media (max-width: 1440px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+export const DashboardCards = () => {
   const { dashboardCardsData, dashboardCardsColor } = useDashboard();
 
   return (
@@ -56,5 +75,3 @@ const DashboardCards = () => {
     </DashboardCardsWrapper>
   );
 };
-
-export default DashboardCards;

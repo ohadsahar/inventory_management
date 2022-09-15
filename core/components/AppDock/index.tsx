@@ -1,14 +1,21 @@
-import Layout from '@/core/components/Layout/Layout';
-import AppNavbar from '@/core/components/Navbar/AppNavbar';
+import React from 'react';
 import { Dock } from 'primereact/dock';
-import { useDock } from '@/hooks/useDock';
 import { Tooltip } from 'primereact/tooltip';
-import { AppDockWrapper } from './Styled';
+import styled from 'styled-components';
+import { Layout } from '@/core/components/Layout';
+import { AppNavbar } from '@/core/components/Navbar';
+import { useDock } from '@/hooks/useDock';
 
-const AppDock = () => {
+const AppDockWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const AppDock = () => {
   const { currentLayout, dockItems } = useDock();
   return (
-    <>
+    <React.Fragment>
       <AppDockWrapper>
         <AppNavbar />
         <Layout currentLayout={currentLayout} />
@@ -21,8 +28,6 @@ const AppDock = () => {
         showDelay={150}
       />
       <Dock model={dockItems} position="left" />
-    </>
+    </React.Fragment>
   );
 };
-
-export default AppDock;

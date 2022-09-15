@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ProductProps } from 'models/product.model';
 import { RootState } from '../store';
 import {
   createProduct,
@@ -8,6 +7,7 @@ import {
   searchProduct,
   updateProduct,
 } from './AsyncFunctions/handleProduct';
+import { ProductProps } from 'models/product.model';
 
 interface initialState {
   initialProducts: ProductProps[];
@@ -51,7 +51,9 @@ const productSlice = createSlice({
     });
     builder.addCase(deleteProduct.fulfilled, (state, action: PayloadAction<any>) => {
       const updatedProducts = [...state.initialProducts];
-      const index = updatedProducts.findIndex((product: ProductProps) => product.id === action.payload);
+      const index = updatedProducts.findIndex(
+        (product: ProductProps) => product.id === action.payload,
+      );
       if (index >= 0) {
         updatedProducts.splice(index, 1);
       }
@@ -67,7 +69,7 @@ const productSlice = createSlice({
     });
     builder.addCase(updateProduct.fulfilled, (state, action: PayloadAction<any>) => {
       const itemToUpdateIndex = state.initialProducts.findIndex(
-        (item: ProductProps) => item.id === action.payload.id
+        (item: ProductProps) => item.id === action.payload.id,
       );
       state.initialProducts[itemToUpdateIndex] = action.payload;
       state.loading = false;

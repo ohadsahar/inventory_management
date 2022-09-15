@@ -1,15 +1,18 @@
-import { Strings } from '@/config/Strings';
-import { ProductHistoryProps, ProductProps } from 'models/product.model';
+import React from 'react';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
-import React from 'react';
+import { Strings } from '@/config/Strings';
+import { ProductHistoryProps, ProductProps } from 'models/product.model';
 
 interface ProductTableExpansionTableProps {
   product: ProductProps;
   handleStatus: (product: ProductProps) => JSX.Element;
 }
 
-const ProductTableExpansionTable = ({ product, handleStatus }: ProductTableExpansionTableProps) => {
+export const ProductTableExpansionTable = ({
+  product,
+  handleStatus,
+}: ProductTableExpansionTableProps) => {
   const handleDate = (rowData: ProductHistoryProps) => {
     return <span>{new Date(rowData.updateTime).toLocaleDateString()}</span>;
   };
@@ -25,5 +28,3 @@ const ProductTableExpansionTable = ({ product, handleStatus }: ProductTableExpan
     </DataTable>
   );
 };
-
-export default ProductTableExpansionTable;

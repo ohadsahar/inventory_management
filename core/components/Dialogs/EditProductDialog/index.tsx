@@ -1,11 +1,21 @@
-import { FieldType } from '@/config/Enums/FieldType';
-import { Strings } from '@/config/Strings';
-import AppInput from '@/shared/AppInput/AppInput';
-import { ProductProps } from 'models/product.model';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
+import styled from 'styled-components';
+import { FieldType } from '@/config/Enums/FieldType';
+import { Strings } from '@/config/Strings';
 import { useProduct } from '@/hooks/useProduct';
-import { ProductDialogButtonActions, ProductDialogWrapper } from '../CreateProductDialog/Styled';
+import { AppInput } from '@/shared/AppInput';
+import { ProductProps } from 'models/product.model';
+
+const ProductDialogWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 3vh;
+`;
+
+const ProductDialogButtonActions = styled.div`
+  padding-top: 1vh;
+`;
 
 interface EditProductDialogProps {
   product: ProductProps | undefined;

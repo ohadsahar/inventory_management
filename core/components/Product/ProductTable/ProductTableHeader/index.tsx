@@ -1,16 +1,25 @@
+import React from 'react';
+import { InputText } from 'primereact/inputtext';
+import styled from 'styled-components';
 import { TextType } from '@/config/Enums/TextType';
 import { Strings } from '@/config/Strings';
-import Typography from '@/shared/Typography/Typography';
-import { InputText } from 'primereact/inputtext';
-import React from 'react';
 import { useProductTable } from '@/hooks/useProductTable';
-import { TableHeader } from './Styled';
+import { Typography } from '@/shared/Typography';
 
-const ProductTableHeader = ({ productsLength }: { productsLength: number }) => {
+const TableHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 2vh;
+`;
+
+export const ProductTableHeader = ({ productsLength }: { productsLength: number }) => {
   const { onSearch } = useProductTable();
   return (
     <TableHeader>
-      <Typography type={TextType.REGULAR} text={`${Strings.ProductTableTotalRecords} ${productsLength}`} />
+      <Typography
+        type={TextType.REGULAR}
+        text={`${Strings.ProductTableTotalRecords} ${productsLength}`}
+      />
       <span className="p-input-icon-left">
         <i className="pi pi-search" />
         <InputText
@@ -23,5 +32,3 @@ const ProductTableHeader = ({ productsLength }: { productsLength: number }) => {
     </TableHeader>
   );
 };
-
-export default ProductTableHeader;

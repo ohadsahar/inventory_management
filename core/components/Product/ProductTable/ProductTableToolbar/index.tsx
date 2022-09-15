@@ -1,12 +1,17 @@
-import { Strings } from '@/config/Strings';
-import { useProductTable } from '@/hooks/useProductTable';
+import { Dispatch, SetStateAction } from 'react';
 import { Button } from 'primereact/button';
 import { FileUpload } from 'primereact/fileupload';
 import { Toolbar } from 'primereact/toolbar';
-import { Dispatch, SetStateAction } from 'react';
-import { TableHeaderActions } from './Styled';
+import styled from 'styled-components';
+import { Strings } from '@/config/Strings';
+import { useProductTable } from '@/hooks/useProductTable';
 
-const ProductTableToolbar = ({
+const TableHeaderActions = styled.div`
+  display: flex;
+  grid-column-gap: 1vw;
+`;
+
+export const ProductTableToolbar = ({
   setCreateProductMode,
 }: {
   setCreateProductMode: Dispatch<SetStateAction<boolean>>;
@@ -39,5 +44,3 @@ const ProductTableToolbar = ({
     ></Toolbar>
   );
 };
-
-export default ProductTableToolbar;

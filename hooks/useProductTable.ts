@@ -1,5 +1,5 @@
-import { ProductProps } from 'models/product.model';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { ProductProps } from 'models/product.model';
 import { getProducts, searchProduct } from 'redux/ProductSlice/AsyncFunctions/handleProduct';
 import { selectAllProducts } from 'redux/ProductSlice/ProductSlice';
 import { useAppDispatch, useAppSelector } from 'redux/store';
@@ -36,7 +36,7 @@ export const useProductTable = () => {
     (value: string) => {
       dispatch(searchProduct(value));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const hideDialog = useCallback(() => {
@@ -46,6 +46,7 @@ export const useProductTable = () => {
   }, []);
 
   const importCSV = useCallback((e: any) => {
+    console.log(e);
     console.log('Should Import CSV');
   }, []);
 

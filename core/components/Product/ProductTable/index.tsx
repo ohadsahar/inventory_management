@@ -1,18 +1,45 @@
+import { Column } from 'primereact/column';
+import { DataTable } from 'primereact/datatable';
+import styled from 'styled-components';
+import { ProductTableActions } from './ProductTableActions';
+import { ProductTableExpansionTable } from './ProductTableExpansionTable';
+import { ProductTableHeader } from './ProductTableHeader';
+import { ProductTableToolbar } from './ProductTableToolbar';
 import { Strings } from '@/config/Strings';
-import CreateProductDialog from '@/core/components/Dialogs/CreateProductDialog/CreateProductDialog';
-import EditProductDialog from '@/core/components/Dialogs/EditProductDialog/EditProductDialog';
+import CreateProductDialog from '@/core/components/Dialogs/CreateProductDialog';
+import EditProductDialog from '@/core/components/Dialogs/EditProductDialog';
 import { useProduct } from '@/hooks/useProduct';
 import { useProductTable } from 'hooks/useProductTable';
 import { ProductProps } from 'models/product.model';
-import { Column } from 'primereact/column';
-import { DataTable } from 'primereact/datatable';
-import ProductTableActions from './ProductTableActions/ProductTableActions';
-import ProductTableExpansionTable from './ProductTableExpansionTable/ProductTableExpansionTable';
-import ProductTableHeader from './ProductTableHeader/ProductTableHeader';
-import ProductTableToolbar from './ProductTableToolbar/ProductTableToolbar';
-import { ProductTableWrapper } from './Styled';
 
-const ProductTable = () => {
+const ProductTableWrapper = styled.div`
+  padding: 16px;
+  > .p-datatable .p-datatable-tbody > tr > td {
+    text-align: right;
+    > .status {
+      width: 100%;
+      padding: 12px 12px;
+      font-weight: 400;
+      text-align: center;
+      display: block;
+      border-radius: 8px;
+      &.stock {
+        background-color: #c8e6c9;
+        color: #256029;
+      }
+      &.lowstock {
+        background: #feedaf;
+        color: #8a5340;
+      }
+      &.outofstock {
+        background: #ffcdd2;
+        color: #c63737;
+      }
+    }
+  }
+`;
+
+export const ProductTable = () => {
   const {
     products,
     expandedRows,
@@ -89,5 +116,3 @@ const ProductTable = () => {
     </ProductTableWrapper>
   );
 };
-
-export default ProductTable;
