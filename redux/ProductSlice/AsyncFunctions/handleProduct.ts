@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { API_URL } from '@/config/Config';
 import { AlertType } from '@/config/Enums/AlertType';
 import { Strings } from '@/config/Strings';
-import { items } from 'mock';
 import { ProductProps } from 'models/product.model';
 import { createAlert } from 'redux/AlertSlice/AlertSlice';
 
@@ -12,14 +13,14 @@ export const getProducts = createAsyncThunk('api/getProducts', async (_, thunkAP
       type: AlertType.INFO,
     }),
   );
-  await new Promise((resolve) => setTimeout(resolve, 500));
+  const { data } = (await axios.get(`${API_URL}/product`)).data;
   thunkAPI.dispatch(
     createAlert({
       message: Strings.MessageGlobalLoadingDoneProducts,
       type: AlertType.SUCCESS,
     }),
   );
-  return items;
+  return data;
 });
 
 export const createProduct = createAsyncThunk(
@@ -31,14 +32,14 @@ export const createProduct = createAsyncThunk(
         type: AlertType.INFO,
       }),
     );
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const { data } = (await axios.post(`${API_URL}/product`, product)).data;
     thunkAPI.dispatch(
       createAlert({
         message: Strings.MessageCreateProductSuccessfully,
         type: AlertType.SUCCESS,
       }),
     );
-    return product;
+    return data;
   },
 );
 
@@ -51,14 +52,14 @@ export const updateProduct = createAsyncThunk(
         type: AlertType.INFO,
       }),
     );
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const { data } = (await axios.put(`${API_URL}/product/${product.id}`, product)).data;
     thunkAPI.dispatch(
       createAlert({
         message: Strings.MessageEditProductSuccessfully,
         type: AlertType.SUCCESS,
       }),
     );
-    return product;
+    return data;
   },
 );
 
@@ -71,18 +72,21 @@ export const deleteProduct = createAsyncThunk(
         type: AlertType.INFO,
       }),
     );
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const { data } = (await axios.delete(`${API_URL}/product/${product.id}`)).data;
     thunkAPI.dispatch(
       createAlert({
         message: Strings.MessageDeleteProductSuccessfully,
         type: AlertType.SUCCESS,
       }),
     );
-    return product.id;
+    return data;
   },
 );
 
-export const searchProduct = createAsyncThunk('api/searchProduct', async (value: string) => {
-  const filteredData = items.filter((product: any) => product.name.includes(value));
-  return filteredData;
-});
+export const searchProduct = createAsyncThunk(
+  'api/searchProduct',
+  async (value: string, thunkAPI) => {
+    // const filteredData = items.filter((product: any) => product.name.includes(value));
+    // return filteredData;
+  },
+);
