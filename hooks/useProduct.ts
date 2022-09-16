@@ -14,7 +14,7 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
   const dispatch = useAppDispatch();
   const [isEditMode] = useState<boolean>(product !== undefined ? true : false);
   const defaultValues = {
-    id: product?.id ?? Math.random().toString(),
+    id: product?.id ?? Math.random(),
     name: product?.name ?? '',
     numOfUnits: product?.numOfUnits ?? 1,
     minimumForAlert: product?.minimumForAlert ?? 1,
@@ -60,7 +60,7 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
     (handleProduct: ProductProps, data: ProductProps, productLabel: ProductStatusType) => {
       const newProductHistory: ProductHistoryProps[] = [...(handleProduct.productHistory ?? [])];
       newProductHistory.push({
-        id: Math.random().toString(),
+        id: Math.random(),
         updateName: 'אוהד',
         numOfUnits: data.numOfUnits,
         minimumForAlert: handleProduct.minimumForAlert,

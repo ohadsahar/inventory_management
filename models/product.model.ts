@@ -1,5 +1,5 @@
 export interface ProductProps {
-  id: string;
+  id: number;
   name: string;
   numOfUnits: number;
   minimumForAlert: number;
@@ -11,7 +11,7 @@ export interface ProductProps {
 }
 
 export interface ProductHistoryProps {
-  id: string;
+  id: number;
   updateName: string;
   numOfUnits: number;
   minimumForAlert: number;
