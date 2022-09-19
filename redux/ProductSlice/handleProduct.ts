@@ -1,26 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { API_URL } from '@/config/Config';
 import { AlertType } from '@/config/Enums/AlertType';
 import { Strings } from '@/config/Strings';
+import { ProductService } from '@/core/services';
 import { ProductProps } from 'models/product.model';
-import { createAlert } from 'redux/AlertSlice/AlertSlice';
+import { createAlert } from 'redux/AlertSlice';
 
-export const getProducts = createAsyncThunk('api/getProducts', async (_, thunkAPI) => {
-  thunkAPI.dispatch(
-    createAlert({
-      message: Strings.MessageGlobalLoadingProducts,
-      type: AlertType.INFO,
-    }),
-  );
-  const { data } = (await axios.get(`${API_URL}/product`)).data;
-  thunkAPI.dispatch(
-    createAlert({
-      message: Strings.MessageGlobalLoadingDoneProducts,
-      type: AlertType.SUCCESS,
-    }),
-  );
-  return data;
+export const getProducts = createAsyncThunk('api/getProducts', async () => {
+  return await ProductService.getProducs();
 });
 
 export const createProduct = createAsyncThunk(
@@ -32,7 +18,7 @@ export const createProduct = createAsyncThunk(
         type: AlertType.INFO,
       }),
     );
-    const { data } = (await axios.post(`${API_URL}/product`, product)).data;
+    const data = await ProductService.createProduct(product);
     thunkAPI.dispatch(
       createAlert({
         message: Strings.MessageCreateProductSuccessfully,
@@ -52,7 +38,7 @@ export const updateProduct = createAsyncThunk(
         type: AlertType.INFO,
       }),
     );
-    const { data } = (await axios.put(`${API_URL}/product/${product.id}`, product)).data;
+    const data = await ProductService.updateProduct(product);
     thunkAPI.dispatch(
       createAlert({
         message: Strings.MessageEditProductSuccessfully,
@@ -72,7 +58,7 @@ export const deleteProduct = createAsyncThunk(
         type: AlertType.INFO,
       }),
     );
-    const { data } = (await axios.delete(`${API_URL}/product/${product.id}`)).data;
+    const data = await ProductService.deleteProduct(product);
     thunkAPI.dispatch(
       createAlert({
         message: Strings.MessageDeleteProductSuccessfully,
@@ -83,10 +69,6 @@ export const deleteProduct = createAsyncThunk(
   },
 );
 
-export const searchProduct = createAsyncThunk(
-  'api/searchProduct',
-  async (value: string, thunkAPI) => {
-    // const filteredData = items.filter((product: any) => product.name.includes(value));
-    // return filteredData;
-  },
-);
+export const searchProduct = createAsyncThunk('api/searchProduct', async (value: string) => {
+  return await ProductService.searchProducts(value);
+});

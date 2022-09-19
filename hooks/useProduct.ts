@@ -3,18 +3,14 @@ import { useForm } from 'react-hook-form';
 import { ProductStatusType } from '@/config/Enums/ProductStatusType';
 import { Strings } from '@/config/Strings';
 import { ProductHistoryProps, ProductProps } from 'models/product.model';
-import {
-  createProduct,
-  deleteProduct,
-  updateProduct,
-} from 'redux/ProductSlice/AsyncFunctions/handleProduct';
+import { createProduct, deleteProduct, updateProduct } from 'redux/ProductSlice/handleProduct';
 import { useAppDispatch } from 'redux/store';
 
 export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
   const dispatch = useAppDispatch();
   const [isEditMode] = useState<boolean>(product !== undefined ? true : false);
   const defaultValues = {
-    id: product?.id ?? Math.random(),
+    id: product?.id,
     name: product?.name ?? '',
     numOfUnits: product?.numOfUnits ?? 1,
     minimumForAlert: product?.minimumForAlert ?? 1,
@@ -88,7 +84,7 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
       const productLabel = validateProductStatus(data.minimumForAlert, data.numOfUnits);
       const handleProduct = {
         ...data,
-        productStatus: { label: productLabel, labelValue: validateProductLabelView(productLabel) },
+        productStatus: productLabel,
       };
       if (!isEditMode) {
         handleCreateProduct(handleProduct);
@@ -103,5 +99,5 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
     [isEditMode, hideDialog, handleCreateProduct, handleEditProduct, reset],
   );
 
-  return { onSubmit, handleSubmit, onDeleteProduct, control, errors };
+  return { onSubmit, handleSubmit, onDeleteProduct, validateProductLabelView, control, errors };
 };

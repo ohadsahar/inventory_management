@@ -54,12 +54,12 @@ export const ProductTable = () => {
     hideDialog,
     onEditProduct,
   } = useProductTable();
-  const { onDeleteProduct } = useProduct();
+  const { onDeleteProduct, validateProductLabelView } = useProduct();
 
   const handleStatus = (rowData: ProductProps) => {
     return (
-      <span className={`status ${rowData?.productStatus?.label.toLowerCase()}`}>
-        {rowData.productStatus?.labelValue}
+      <span className={`status ${rowData?.productStatus.toLowerCase()}`}>
+        {validateProductLabelView(rowData.productStatus)}
       </span>
     );
   };

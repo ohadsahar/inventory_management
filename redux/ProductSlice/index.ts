@@ -6,7 +6,7 @@ import {
   getProducts,
   searchProduct,
   updateProduct,
-} from './AsyncFunctions/handleProduct';
+} from './handleProduct';
 import { ProductProps } from 'models/product.model';
 
 interface initialState {
@@ -52,7 +52,7 @@ const productSlice = createSlice({
     builder.addCase(deleteProduct.fulfilled, (state, action: PayloadAction<any>) => {
       const updatedProducts = [...state.initialProducts];
       const index = updatedProducts.findIndex(
-        (product: ProductProps) => product.id === action.payload,
+        (product: ProductProps) => product.id === action.payload.id,
       );
       if (index >= 0) {
         updatedProducts.splice(index, 1);

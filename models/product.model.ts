@@ -1,10 +1,12 @@
+import { ProductStatusType } from '@/config/Enums/ProductStatusType';
+
 export interface ProductProps {
   id: number;
   name: string;
   numOfUnits: number;
   minimumForAlert: number;
   productHistory?: ProductHistoryProps[];
-  productStatus: ProductStatus;
+  productStatus: ProductStatusType;
   onEdit?: (id: string) => void;
   onFinished?: (value: string) => void;
   onDelete?: (value: string) => void;

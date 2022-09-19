@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ProductProps } from 'models/product.model';
-import { getProducts, searchProduct } from 'redux/ProductSlice/AsyncFunctions/handleProduct';
-import { selectAllProducts } from 'redux/ProductSlice/ProductSlice';
+import { selectAllProducts } from 'redux/ProductSlice';
+import { getProducts, searchProduct } from 'redux/ProductSlice/handleProduct';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 
 export const useProductTable = () => {

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { alertTimeout, infoAlertTime } from '@/config/Constants';
 import { AlertType } from '@/config/Enums/AlertType';
 import { Strings } from '@/config/Strings';
-import { Alert, removeAlert, selectAllAlerts } from 'redux/AlertSlice/AlertSlice';
+import { Alert, removeAlert, selectAllAlerts } from 'redux/AlertSlice';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 
 export const useAlerts = () => {
