@@ -53,6 +53,8 @@ export const ProductTable = () => {
     setCreateProductMode,
     hideDialog,
     onEditProduct,
+    onSearch,
+    importCSV,
   } = useProductTable();
 
   const { onDeleteProduct, validateProductLabelView } = useProduct();
@@ -75,7 +77,7 @@ export const ProductTable = () => {
           product={productToEdit}
         />
       )}
-      <ProductTableToolbar setCreateProductMode={setCreateProductMode} />
+      <ProductTableToolbar importCSV={importCSV} setCreateProductMode={setCreateProductMode} />
       <DataTable
         dataKey="id"
         responsiveLayout="scroll"
@@ -87,7 +89,7 @@ export const ProductTable = () => {
         rowsPerPageOptions={paginatorConfig.rowsPerPageOptions}
         paginatorTemplate={paginatorConfig.paginatorTemplate}
         currentPageReportTemplate="מציג {first} עד {last} מתוך {totalRecords} מוצרי מזון"
-        header={<ProductTableHeader productsLength={products?.length} />}
+        header={<ProductTableHeader onSearch={onSearch} productsLength={products?.length} />}
         onSelectionChange={(e) => setSelectedProducts(e.value)}
         onRowToggle={(e) => setExpandedRows(e.data)}
         onRowClick={(e) => setExpandedRows(e.data)}

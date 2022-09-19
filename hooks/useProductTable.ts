@@ -9,13 +9,12 @@ import { useAppDispatch, useAppSelector } from 'redux/store';
 export const useProductTable = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector(selectAllProducts, _.isEqual);
-  console.log(products);
   const [expandedRows, setExpandedRows] = useState<any>();
   const [selectedProducts, setSelectedProducts] = useState(null);
   const [createProductMode, setCreateProductMode] = useState<boolean>(false);
   const [editProductMode, setEditProductMode] = useState<boolean>(false);
   const [productToEdit, setProductToEdit] = useState<ProductProps>();
-
+  console.log(products);
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
