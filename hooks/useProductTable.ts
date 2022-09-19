@@ -14,7 +14,7 @@ export const useProductTable = () => {
   const [createProductMode, setCreateProductMode] = useState<boolean>(false);
   const [editProductMode, setEditProductMode] = useState<boolean>(false);
   const [productToEdit, setProductToEdit] = useState<ProductProps>();
-  console.log(products);
+
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
