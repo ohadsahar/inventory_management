@@ -54,6 +54,7 @@ export const ProductTable = () => {
     hideDialog,
     onEditProduct,
   } = useProductTable();
+
   const { onDeleteProduct, validateProductLabelView } = useProduct();
 
   const handleStatus = (rowData: ProductProps) => {

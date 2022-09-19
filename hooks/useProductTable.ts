@@ -1,4 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import _ from 'lodash';
+import { paginatorConfig } from '../config';
 import { ProductProps } from 'models/product.model';
 import { selectAllProducts } from 'redux/ProductSlice';
 import { getProducts, searchProduct } from 'redux/ProductSlice/handleProduct';
@@ -6,8 +8,8 @@ import { useAppDispatch, useAppSelector } from 'redux/store';
 
 export const useProductTable = () => {
   const dispatch = useAppDispatch();
-  const products = useAppSelector(selectAllProducts);
-
+  const products = useAppSelector(selectAllProducts, _.isEqual);
+  console.log(products);
   const [expandedRows, setExpandedRows] = useState<any>();
   const [selectedProducts, setSelectedProducts] = useState(null);
   const [createProductMode, setCreateProductMode] = useState<boolean>(false);
@@ -17,15 +19,6 @@ export const useProductTable = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
-
-  const paginatorConfig = useMemo(() => {
-    return {
-      numOfRows: 10,
-      rowsPerPageOptions: [10, 25, 50, 100],
-      paginatorTemplate:
-        'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown',
-    };
-  }, []);
 
   const onEditProduct = useCallback((product: ProductProps) => {
     setProductToEdit(product);
@@ -46,8 +39,7 @@ export const useProductTable = () => {
   }, []);
 
   const importCSV = useCallback((e: any) => {
-    console.log(e);
-    console.log('Should Import CSV');
+    console.log(`${e} Should Import CSV`);
   }, []);
 
   return {

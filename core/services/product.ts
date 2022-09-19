@@ -2,7 +2,7 @@ import { API } from './api';
 import { ProductProps } from 'models/product.model';
 
 export class ProductService {
-  static async getProducs() {
+  static async getProducts() {
     const { data } = (await API.get('/product')).data;
     return data;
   }

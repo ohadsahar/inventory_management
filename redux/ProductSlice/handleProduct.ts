@@ -6,7 +6,7 @@ import { ProductProps } from 'models/product.model';
 import { createAlert } from 'redux/AlertSlice';
 
 export const getProducts = createAsyncThunk('api/getProducts', async () => {
-  return await ProductService.getProducs();
+  return await ProductService.getProducts();
 });
 
 export const createProduct = createAsyncThunk(

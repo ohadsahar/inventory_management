@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { shallowEqual } from 'react-redux';
 import { alertTimeout, infoAlertTime } from '@/config/Constants';
 import { AlertType } from '@/config/Enums/AlertType';
 import { Strings } from '@/config/Strings';
@@ -6,7 +7,7 @@ import { Alert, removeAlert, selectAllAlerts } from 'redux/AlertSlice';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 
 export const useAlerts = () => {
-  const alerts: Alert[] = useAppSelector(selectAllAlerts);
+  const alerts: Alert[] = useAppSelector(selectAllAlerts, shallowEqual);
   const dispatch = useAppDispatch();
   const toast = useRef<any>(null);
 
