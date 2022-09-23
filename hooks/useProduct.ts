@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { ProductStatusType } from '@/config/Enums/ProductStatusType';
-import { Strings } from '@/config/Strings';
-import { ProductHistoryProps, ProductProps } from 'models/product.model';
+import { Strings } from '@/config/strings';
+import { ProductStatusType } from '@/shared/Enums/ProductStatusType';
+import { ProductProps } from 'models';
 import { createProduct, deleteProduct, updateProduct } from 'redux/ProductSlice/handleProduct';
 import { useAppDispatch } from 'redux/store';
 
@@ -54,19 +54,17 @@ export const useProduct = (hideDialog?: () => void, product?: ProductProps) => {
 
   const handleEditProduct = useCallback(
     (handleProduct: ProductProps, data: ProductProps, productLabel: ProductStatusType) => {
-      const newProductHistory: ProductHistoryProps[] = [...(handleProduct.productHistory ?? [])];
-      newProductHistory.push({
-        id: Math.random(),
+      handleProduct.productHistory = [];
+      const productHistory = {
+        product: handleProduct.id,
         updateName: 'אוהד',
         numOfUnits: data.numOfUnits,
         minimumForAlert: handleProduct.minimumForAlert,
         updateTime: new Date(),
-        productStatus: {
-          label: productLabel,
-          labelValue: validateProductLabelView(productLabel),
-        },
-      });
-      handleProduct = { ...handleProduct, productHistory: newProductHistory };
+        productStatus: productLabel,
+      };
+      handleProduct.productHistory?.push(productHistory);
+      handleProduct = { ...handleProduct, ...productHistory };
       dispatch(updateProduct(handleProduct));
     },
     [dispatch],

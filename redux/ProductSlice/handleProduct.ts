@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AlertType } from '@/config/Enums/AlertType';
-import { Strings } from '@/config/Strings';
+import { Strings } from '@/config/strings';
 import { ProductService } from '@/core/services';
-import { ProductProps } from 'models/product.model';
+import { AlertType } from '@/shared/Enums';
+import { ProductProps } from 'models';
 import { createAlert } from 'redux/AlertSlice';
 
 export const getProducts = createAsyncThunk('api/getProducts', async () => {

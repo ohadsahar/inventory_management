@@ -1,8 +1,8 @@
 import React from 'react';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
-import { Strings } from '@/config/Strings';
-import { ProductHistoryProps, ProductProps } from 'models/product.model';
+import { Strings } from '@/config/strings';
+import { ProductHistoryProps, ProductProps } from 'models/product';
 
 interface ProductTableExpansionTableProps {
   product: ProductProps;

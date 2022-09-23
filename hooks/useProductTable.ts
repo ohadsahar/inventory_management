@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import _ from 'lodash';
 import { paginatorConfig } from '../config';
-import { ProductProps } from 'models/product.model';
+import { ProductProps } from 'models';
 import { selectAllProducts } from 'redux/ProductSlice';
 import { getProducts, searchProduct } from 'redux/ProductSlice/handleProduct';
 import { useAppDispatch, useAppSelector } from 'redux/store';

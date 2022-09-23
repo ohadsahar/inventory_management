@@ -3,7 +3,7 @@ import { Button } from 'primereact/button';
 import { FileUpload } from 'primereact/fileupload';
 import { Toolbar } from 'primereact/toolbar';
 import styled from 'styled-components';
-import { Strings } from '@/config/Strings';
+import { Strings } from '@/config/strings';
 
 const TableHeaderActions = styled.div`
   display: flex;

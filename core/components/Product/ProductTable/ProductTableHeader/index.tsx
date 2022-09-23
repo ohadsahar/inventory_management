@@ -1,8 +1,8 @@
 import React from 'react';
 import { InputText } from 'primereact/inputtext';
 import styled from 'styled-components';
-import { TextType } from '@/config/Enums/TextType';
-import { Strings } from '@/config/Strings';
+import { Strings } from '@/config/strings';
+import { TextType } from '@/shared/Enums/TextType';
 import { Typography } from '@/shared/Typography';
 
 const TableHeader = styled.div`

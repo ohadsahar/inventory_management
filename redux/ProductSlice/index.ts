@@ -7,7 +7,7 @@ import {
   searchProduct,
   updateProduct,
 } from './handleProduct';
-import { ProductProps } from 'models/product.model';
+import { ProductProps } from 'models';
 
 interface initialState {
   initialProducts: ProductProps[];

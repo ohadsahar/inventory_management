@@ -5,12 +5,12 @@ import { ProductTableActions } from './ProductTableActions';
 import { ProductTableExpansionTable } from './ProductTableExpansionTable';
 import { ProductTableHeader } from './ProductTableHeader';
 import { ProductTableToolbar } from './ProductTableToolbar';
-import { Strings } from '@/config/Strings';
+import { Strings } from '@/config/strings';
 import CreateProductDialog from '@/core/components/Dialogs/CreateProductDialog';
 import EditProductDialog from '@/core/components/Dialogs/EditProductDialog';
 import { useProduct } from '@/hooks/useProduct';
 import { useProductTable } from 'hooks/useProductTable';
-import { ProductProps } from 'models/product.model';
+import { ProductProps } from 'models';
 
 const ProductTableWrapper = styled.div`
   padding: 16px;

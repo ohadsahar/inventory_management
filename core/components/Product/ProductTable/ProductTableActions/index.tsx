@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { Button } from 'primereact/button';
 import { TableRowActionsWrapper } from './Styled';
 import { useRowTableActions } from '@/hooks/useRowTableActions';
-import { ProductProps } from 'models/product.model';
+import { ProductProps } from 'models';
 
 interface ProductTableActionsProps {
   product: ProductProps;

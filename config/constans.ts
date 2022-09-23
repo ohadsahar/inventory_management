@@ -36,3 +36,10 @@ export const dynamicMockDashboard = {
   updatesWeeklyCountPercentage: 0.25,
   warningCountPercentage: 0.8,
 };
+
+export const paginatorConfig = {
+  numOfRows: 10,
+  rowsPerPageOptions: [10, 25, 50, 100],
+  paginatorTemplate:
+    'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown',
+};

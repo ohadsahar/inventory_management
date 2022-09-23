@@ -4,7 +4,7 @@ import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantity
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import styled from 'styled-components';
-import { Strings } from '@/config/Strings';
+import { Strings } from '@/config/strings';
 import { DashboardCard } from '@/core/components/Dashboard/DashboardCards/DashboardCard';
 import { useDashboard } from '@/hooks/useDashboard';
 

@@ -1,5 +1,5 @@
 import { dashboardCardsColor } from 'mock';
-import { DashboardModel } from 'models/dashboard.model';
+import { DashboardModel } from 'models';
 
 export const useDashboard = () => {
   const dashboardCardsData: DashboardModel = {

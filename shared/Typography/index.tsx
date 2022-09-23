@@ -1,6 +1,6 @@
 import React from 'react';
 import { HintText, InputLabel, RegularText, TitleText } from './Styled';
-import { TextType } from '@/config/Enums/TextType';
+import { TextType } from '@/shared/Enums';
 
 interface TypographyProps {
   text: string;

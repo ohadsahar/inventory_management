@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AlertType } from '@/config/Enums/AlertType';
+import { AlertType } from '@/shared/Enums/AlertType';
 import { RootState } from 'redux/store';
 
 export interface InitialState {

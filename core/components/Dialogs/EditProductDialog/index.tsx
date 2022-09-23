@@ -1,11 +1,11 @@
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import styled from 'styled-components';
-import { FieldType } from '@/config/Enums/FieldType';
-import { Strings } from '@/config/Strings';
+import { Strings } from '@/config/strings';
 import { useProduct } from '@/hooks/useProduct';
 import { AppInput } from '@/shared/AppInput';
-import { ProductProps } from 'models/product.model';
+import { FieldType } from '@/shared/Enums';
+import { ProductProps } from 'models';
 
 const ProductDialogWrapper = styled.div`
   display: flex;

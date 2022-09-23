@@ -1,8 +1,8 @@
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { DashboardCardTitle, DashboardCardWrapper, IconWrapper, PairWrapper } from './Styled';
-import { TextType } from '@/config/Enums/TextType';
-import { Strings } from '@/config/Strings';
+import { Strings } from '@/config/strings';
+import { TextType } from '@/shared/Enums/TextType';
 import { Typography } from '@/shared/Typography';
 
 interface DashboardCardProps {

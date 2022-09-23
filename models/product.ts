@@ -1,4 +1,4 @@
-import { ProductStatusType } from '@/config/Enums/ProductStatusType';
+import { ProductStatusType } from '@/shared/Enums';
 
 export interface ProductProps {
   id: number;
@@ -13,15 +13,10 @@ export interface ProductProps {
 }
 
 export interface ProductHistoryProps {
-  id: number;
+  id?: number;
   updateName: string;
   numOfUnits: number;
   minimumForAlert: number;
   updateTime: Date;
-  productStatus: ProductStatus;
-}
-
-interface ProductStatus {
-  label: string;
-  labelValue: string;
+  productStatus: ProductStatusType;
 }

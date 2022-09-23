@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { dashboardCardsColor, dynamicMockDashboard, months } from '@/config/Constants';
-import { Strings } from '@/config/Strings';
-import { DashboardModel } from 'models/dashboard.model';
+import { dashboardCardsColor, dynamicMockDashboard, months } from '@/config/constans';
+import { Strings } from '@/config/strings';
+import { DashboardModel } from 'models';
 
 export const useCharts = () => {
   const dashboardCardsData: DashboardModel = dynamicMockDashboard;

@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { shallowEqual } from 'react-redux';
-import { alertTimeout, infoAlertTime } from '@/config/Constants';
-import { AlertType } from '@/config/Enums/AlertType';
-import { Strings } from '@/config/Strings';
+import { alertTimeout, infoAlertTime } from '@/config/constans';
+import { Strings } from '@/config/strings';
+import { AlertType } from '@/shared/Enums/AlertType';
 import { Alert, removeAlert, selectAllAlerts } from 'redux/AlertSlice';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 
