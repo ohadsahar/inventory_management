@@ -1,11 +1,5 @@
 export const URL = {
-  POLICIES: '/policies',
-  CREATE_POLICY: '/policy/create',
-  TARGETS: '/targets',
-  CREATE_TARGET: '/target/create',
-  UNAUTHORIZED: '/404',
-  INTRODUCTION: '/introduction',
-  SERVICE_INFORMATION: '/info',
+  products: '/product',
 };
 
 interface Params {
